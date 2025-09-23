@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+
 public class BossCombatSystem : MonoBehaviour
 {
     [SerializeField]
@@ -18,7 +19,7 @@ public class BossCombatSystem : MonoBehaviour
 
     private float _timer;
     public attack[] attacks;
-    
+
     public string fileName = "boss1.txt"; // Put this in Assets/StreamingAssets
     public List<BossEntry> bossEntries = new List<BossEntry>();
 
@@ -48,7 +49,7 @@ public class BossCombatSystem : MonoBehaviour
             index = 0;
         }
     }
-    
+
     void ReadBossFile()
     {
         string path = Path.Combine(Application.streamingAssetsPath, fileName);
@@ -60,6 +61,7 @@ public class BossCombatSystem : MonoBehaviour
             foreach (string line in lines)
             {
                 if (string.IsNullOrWhiteSpace(line)) continue; // skip empty lines
+                if (line.StartsWith("//")) continue;
 
                 string[] parts = line.Split(' ');
 

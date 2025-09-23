@@ -6,6 +6,7 @@ public class Pellet : MonoBehaviour
     public float speed;
 
     private float _lifeTimer;
+    public float life=10;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,7 +19,7 @@ public class Pellet : MonoBehaviour
         transform.position += transform.up * (speed * Time.deltaTime);
         
         _lifeTimer+=Time.deltaTime;
-        if (_lifeTimer >= 10)
+        if (_lifeTimer >= life)
         {
             Destroy(this.gameObject);
         }

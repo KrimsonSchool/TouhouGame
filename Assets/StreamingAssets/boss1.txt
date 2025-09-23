@@ -1,10 +1,33 @@
+//time attack_index
+//0 = normal pellet
+//1 = long pellet
+//2 = straight laser
+//3 = right laser
 1.0 0
 1.5 0
 1.0 0
 0.5 1
+//4 secs
 0.3 1
 0.3 1
+//4.6
 1.0 0
 0.2 0
 0.1 0
+//5.9
 0.0 0
+1.0 2
+0.1 0
+//7
+0.0 1
+1.0 1
+1.0 0
+1.0 3
+//10 secs
+1.0 0
+0.7 0
+//at centre at 12 secs...
+0.1 1
+0.1 1
+0.1 1
+//full cycle is 36 secs.
