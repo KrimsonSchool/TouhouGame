@@ -7,8 +7,8 @@ public class WaveSystem : MonoBehaviour
     [SerializeField]
     public struct WaveEntry
     {
-        public int enemyIndex;
         public float timing;
+        public int enemyIndex;
         public float pos;
 
         public WaveEntry(float t, int i, float p)
@@ -41,6 +41,7 @@ public class WaveSystem : MonoBehaviour
             _timer += Time.deltaTime;
             if (_timer >= waveEntries[index].timing)
             {
+                print("spawn wit timing of " +  waveEntries[index].timing);
                 enemies[waveEntries[index].enemyIndex].Init(waveEntries[index].pos);
                 index++;
                 _timer = 0;
@@ -48,7 +49,7 @@ public class WaveSystem : MonoBehaviour
         }
         else
         {
-            index = 0;
+            //next wave or boss
         }
     }
 
@@ -70,10 +71,10 @@ public class WaveSystem : MonoBehaviour
                 if (parts.Length == 3)
                 {
                     if (float.TryParse(parts[0], out float time) &&
-                        int.TryParse(parts[1], out int index) &&
-                        int.TryParse(parts[2], out int pos))
+                        int.TryParse(parts[1], out int indx) &&
+                        float.TryParse(parts[2], out float pos))
                     {
-                        waveEntries.Add(new WaveEntry(time, index, pos));
+                        waveEntries.Add(new WaveEntry(time, indx, pos));
                     }
                     else
                     {
