@@ -2,44 +2,46 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class BossCombatSystem : MonoBehaviour
+public class WaveSystem : MonoBehaviour
 {
     [SerializeField]
-    public struct BossEntry
+    public struct WaveEntry
     {
-        public int attackIndex;
+        public int enemyIndex;
         public float timing;
+        public float pos;
 
-        public BossEntry(int i, float f)
+        public WaveEntry(float t, int i, float p)
         {
-            attackIndex = i;
-            timing = f;
+            timing = t;
+            enemyIndex = i;
+            pos = p;
         }
     }
 
-    private float _timer;
-    public Attack[] attacks;
+    public string fileName = "wave1.txt";
+    public List<WaveEntry> waveEntries = new List<WaveEntry>();
 
-    public string fileName = "boss1.txt"; // Put this in Assets/StreamingAssets
-    public List<BossEntry> bossEntries = new List<BossEntry>();
+    private float _timer;
+    public EnemyType[] enemies;
 
     private int index;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ReadBossFile();
+        ReadWaveFile();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (index < bossEntries.Count)
+        if (index < waveEntries.Count)
         {
             _timer += Time.deltaTime;
-            if (_timer >= bossEntries[index].timing)
+            if (_timer >= waveEntries[index].timing)
             {
-                attacks[bossEntries[index].attackIndex].Init();
+                enemies[waveEntries[index].enemyIndex].Init(waveEntries[index].pos);
                 index++;
                 _timer = 0;
             }
@@ -50,7 +52,7 @@ public class BossCombatSystem : MonoBehaviour
         }
     }
 
-    void ReadBossFile()
+    void ReadWaveFile()
     {
         string path = Path.Combine(Application.streamingAssetsPath, fileName);
 
@@ -65,12 +67,13 @@ public class BossCombatSystem : MonoBehaviour
 
                 string[] parts = line.Split(' ');
 
-                if (parts.Length == 2)
+                if (parts.Length == 3)
                 {
-                    if (float.TryParse(parts[0], out float floatVal) &&
-                        int.TryParse(parts[1], out int intVal))
+                    if (float.TryParse(parts[0], out float time) &&
+                        int.TryParse(parts[1], out int index) &&
+                        int.TryParse(parts[2], out int pos))
                     {
-                        bossEntries.Add(new BossEntry(intVal, floatVal));
+                        waveEntries.Add(new WaveEntry(time, index, pos));
                     }
                     else
                     {

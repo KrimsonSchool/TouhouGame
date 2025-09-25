@@ -1,10 +1,8 @@
 using UnityEngine;
 
-public class attack : MonoBehaviour
+public class EnemyType : MonoBehaviour
 {
-    public GameObject pellet;
-    
-    public bool circleAttack;
+    public GameObject enemy;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,10 +14,10 @@ public class attack : MonoBehaviour
     {
         
     }
-    
-    //circle attack
-    public void Init()
+
+    public void Init(float pos)
     {
-        Instantiate(pellet,  transform.position, Quaternion.identity);
+        print("Spawn enemy");
+        Instantiate(enemy, new Vector2(pos, 5.25f), Quaternion.identity);
     }
 }
