@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     public GameObject proj;
     private float timer;
     public float shootSpeed;
+
+    public GameObject[] dropped;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,6 +37,10 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PlayerPellet"))
         {
+            foreach (GameObject drop in dropped)
+            {
+                Instantiate(drop, transform.position, Quaternion.identity);
+            }
             Destroy(this.gameObject);
         }
     }

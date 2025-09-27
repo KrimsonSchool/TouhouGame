@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     private bool invincible;
     
     public int health = 3;
+
+    public int gold;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,6 +49,12 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
             health--;
             StartCoroutine(Flash());
+        }
+
+        if (other.CompareTag("Gold"))
+        {
+            Destroy(other.gameObject);
+            gold++;
         }
     }
 

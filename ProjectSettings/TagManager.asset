@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerPellet
   - EnemyPellet
+  - Gold
   layers:
   - Default
   - TransparentFX
