@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 583069465834457306}
   m_Layer: 0
   m_Name: Shroom Wizard
-  m_TagString: Untagged
+  m_TagString: EnemyPellet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,3 +104,4 @@ MonoBehaviour:
   shoots: 0
   proj: {fileID: 0}
   shootSpeed: 0
+  dropped: []

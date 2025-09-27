@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2798223078544926719}
   m_Layer: 0
   m_Name: Fairy
-  m_TagString: Untagged
+  m_TagString: EnemyPellet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
