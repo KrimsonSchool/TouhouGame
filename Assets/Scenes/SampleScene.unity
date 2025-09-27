@@ -630,7 +630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &650332339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1328,6 +1328,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 650332341}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1053651925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1053651926}
+  - component: {fileID: 1053651927}
+  m_Layer: 0
+  m_Name: Shroom wizard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1053651926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053651925}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1988248544}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1053651927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053651925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f3c68013703dca5ae5cd1e24be25e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 9023076151922070761, guid: f9a9af837f14898f8befd5bfc7519caa, type: 3}
 --- !u!1 &1078958068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,6 +1828,8 @@ MonoBehaviour:
   speed: 5
   attacks:
   - {fileID: 526365555}
+  sprite: {fileID: 1848981752}
+  health: 3
 --- !u!50 &1553564933
 Rigidbody2D:
   serializedVersion: 5
@@ -2926,6 +2973,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1988248544}
   - component: {fileID: 1988248543}
+  - component: {fileID: 1988248545}
   m_Layer: 0
   m_Name: WaveSystem
   m_TagString: Untagged
@@ -2948,6 +2996,8 @@ MonoBehaviour:
   fileName: wave1.txt
   enemies:
   - {fileID: 1998854300}
+  - {fileID: 1053651927}
+  index: 0
 --- !u!4 &1988248544
 Transform:
   m_ObjectHideFlags: 0
@@ -2962,8 +3012,21 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1998854299}
+  - {fileID: 1053651926}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1988248545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988248542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52aec57e033de9c5592c33c36178f203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1998854298
 GameObject:
   m_ObjectHideFlags: 0

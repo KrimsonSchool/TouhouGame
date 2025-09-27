@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -8,6 +9,12 @@ public class Player : MonoBehaviour
     public Attack[] attacks;
 
     private float attackTimer;
+    
+    public SpriteRenderer sprite;
+
+    private bool invincible;
+    
+    public int health = 3;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,9 +42,35 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("EnemyPellet"))
+        if (other.CompareTag("EnemyPellet") && !invincible)
         {
             Destroy(other.gameObject);
+            health--;
+            StartCoroutine(Flash());
         }
+    }
+
+    IEnumerator Flash()
+    {
+        //0.35 secs at 0.05
+        float flshscnds = 0.05f;
+        //off on off on off on
+        invincible = true;
+        sprite.enabled = false;
+        yield return new WaitForSeconds(flshscnds);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(flshscnds);
+        sprite.enabled = false;
+        yield return new WaitForSeconds(flshscnds);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(flshscnds);
+        sprite.enabled = false;
+        yield return new WaitForSeconds(flshscnds);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(flshscnds);
+        sprite.enabled = false;
+        yield return new WaitForSeconds(flshscnds);
+        sprite.enabled = true;
+        invincible=false;
     }
 }

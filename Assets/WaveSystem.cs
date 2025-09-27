@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class WaveSystem : MonoBehaviour
@@ -25,7 +26,7 @@ public class WaveSystem : MonoBehaviour
     private float _timer;
     public EnemyType[] enemies;
 
-    private int index;
+    public int index;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,7 +35,7 @@ public class WaveSystem : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    async Task Update()
     {
         if (index < waveEntries.Count)
         {
@@ -49,12 +50,16 @@ public class WaveSystem : MonoBehaviour
         }
         else
         {
+            waveEntries.Clear();
             //next wave or boss
+            print("Next Wave!");
+            await FindFirstObjectByType<WaveManager>().IncrementWave();
         }
     }
 
-    void ReadWaveFile()
+    public async Task ReadWaveFile()
     {
+        print("reading from " + fileName);
         string path = Path.Combine(Application.streamingAssetsPath, fileName);
 
         if (File.Exists(path))
@@ -86,6 +91,7 @@ public class WaveSystem : MonoBehaviour
         else
         {
             Debug.LogError($"File not found at {path}");
+            this.enabled = false;
         }
     }
 }
