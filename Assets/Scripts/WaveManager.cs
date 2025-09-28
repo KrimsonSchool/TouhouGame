@@ -11,6 +11,8 @@ public class WaveManager : MonoBehaviour
     WaveSystem waveSystem;
     
     public GameObject[] bosses;
+
+    public bool inBossFight;
     void Start()
     {
         waveSystem = FindFirstObjectByType<WaveSystem>();
@@ -24,17 +26,21 @@ public class WaveManager : MonoBehaviour
 
     public async Task IncrementWave()
     {
-        waveIndex++;
-        if (waveIndex % 5 == 0)
+        if (!inBossFight)
         {
-            bossIndex++;
-            Instantiate(bosses[bossIndex], transform.position, Quaternion.identity);
-        }
-        else
-        {
-            waveSystem.fileName = "wave" + waveIndex+".txt";
-            waveSystem.index = 0;
-            await waveSystem.ReadWaveFile();
+            waveIndex++;
+            if (waveIndex % 5 == 0)
+            {
+                Instantiate(bosses[bossIndex], transform.position, Quaternion.identity);
+                inBossFight = true;
+                bossIndex++;
+            }
+            else
+            {
+                waveSystem.fileName = "wave" + waveIndex + ".txt";
+                waveSystem.index = 0;
+                await waveSystem.ReadWaveFile();
+            }
         }
     }
 }

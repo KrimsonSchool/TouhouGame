@@ -21,6 +21,7 @@ public class BossHealthSystem : MonoBehaviour
     void Update()
     {
         
+        //
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -42,6 +43,12 @@ public class BossHealthSystem : MonoBehaviour
                 if (_flickerRoutine == null)
                     _flickerRoutine = StartCoroutine(FlickerSprite());
                 health--;
+
+                if (health <= 0)
+                {
+                    FindFirstObjectByType<WaveManager>().inBossFight = false;
+                    Destroy(this.gameObject);
+                }
             }
             Destroy(other.gameObject);
         }
