@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1185822657979944689}
   - component: {fileID: 5855561860184146629}
   - component: {fileID: 7729010088996472998}
-  - component: {fileID: 2058990112038168036}
   - component: {fileID: 7818378020712255212}
+  - component: {fileID: -3785547431915225139}
   m_Layer: 0
   m_Name: Gold
   m_TagString: Gold
@@ -112,23 +112,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2058990112038168036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8832551604615321215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d48416d38b167a359303becd1b0c27a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: -1.2
-  shoots: 0
-  proj: {fileID: 0}
-  shootSpeed: 0
-  dropped: []
 --- !u!58 &7818378020712255212
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -164,4 +147,18 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.7699999
+  m_Radius: 0.79
+--- !u!114 &-3785547431915225139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8832551604615321215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af76bacc755d02b1eb43dd3f418c8422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: -1.2
+  drawSpeed: 1

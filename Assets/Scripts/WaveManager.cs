@@ -7,7 +7,7 @@ public class WaveManager : MonoBehaviour
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     int waveIndex = 1;
-    int bossIndex = 1;
+    int bossIndex = 0;
     WaveSystem waveSystem;
     
     public GameObject[] bosses;
@@ -29,8 +29,10 @@ public class WaveManager : MonoBehaviour
         if (!inBossFight)
         {
             waveIndex++;
+            Debug.LogWarning("At Wave "+ waveIndex);
             if (waveIndex % 5 == 0)
             {
+                print("Spawn boss index "+ bossIndex);
                 Instantiate(bosses[bossIndex], transform.position, Quaternion.identity);
                 inBossFight = true;
                 bossIndex++;

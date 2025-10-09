@@ -21,7 +21,7 @@ public class Attack : MonoBehaviour
     }
     
     //circle attack
-    public void Init()
+    public void Init(int dmg)
     {
         if (circleAttack)
         {
@@ -30,11 +30,23 @@ public class Attack : MonoBehaviour
                 rot = (360 / nom) * i;
                 GameObject pel = Instantiate(pellet, transform.position, Quaternion.identity);
                 pel.transform.eulerAngles = new Vector3(0, 0, rot);
+                
+                if (pel.GetComponent<Pellet>() != null)
+                {
+                    pel.GetComponent<Pellet>().damage = dmg;
+                }
+                else
+                {
+                    pel.GetComponentInChildren<Pellet>().damage = dmg;
+                }
             }
         }
         else
         {
-            Instantiate(pellet, transform.position, Quaternion.identity);
+            GameObject pel = Instantiate(pellet, transform.position, Quaternion.identity);
+            
+            pel.GetComponent<Pellet>().damage = dmg;
         }
+        
     }
 }

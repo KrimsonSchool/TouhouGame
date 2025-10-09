@@ -39,7 +39,7 @@ public class BossCombatSystem : MonoBehaviour
             _timer += Time.deltaTime;
             if (_timer >= bossEntries[index].timing)
             {
-                attacks[bossEntries[index].attackIndex].Init();
+                attacks[bossEntries[index].attackIndex].Init(1);
                 index++;
                 _timer = 0;
             }
