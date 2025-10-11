@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class Enemy : MonoBehaviour
     public GameObject[] dropped;
 
     private int health=3;
+
+    private bool dir;
+    private float moveTime;
+    private float movingTimer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +27,23 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        movingTimer += Time.deltaTime;
+        if (movingTimer >= moveTime)
+        {
+            moveTime = Random.Range(1, 6);
+            dir = !dir;
+            movingTimer = 0;
+        }
+
+        if (dir)
+        {
+            transform.position+=transform.right * speed* Time.deltaTime;
+        }
+        else
+        {
+            transform.position-=transform.right * speed* Time.deltaTime;
+        }
+        
         transform.position+=transform.up*speed*Time.deltaTime;
 
         if (shoots)

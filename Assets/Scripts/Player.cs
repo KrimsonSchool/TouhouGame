@@ -36,6 +36,9 @@ public class Player : MonoBehaviour
     {
         Application.targetFrameRate = 180;
         upgradeManager = FindFirstObjectByType<UpgradeManager>();
+        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -122,7 +125,7 @@ public class Player : MonoBehaviour
 
     public void Death()
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         bloodDead.SetActive(true);
         //restart to wave 1
         //red screen filter

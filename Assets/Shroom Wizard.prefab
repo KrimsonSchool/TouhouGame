@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d48416d38b167a359303becd1b0c27a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -1
+  speed: -1.3
   shoots: 0
   proj: {fileID: 0}
   shootSpeed: 0

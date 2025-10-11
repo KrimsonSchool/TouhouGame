@@ -9,10 +9,28 @@ public class UpgradeManager : MonoBehaviour
     Player player;
     public TextMeshProUGUI goldText;
 
-    public int[] upgradeCosts = new []
+    private GameObject[] upgradeButtons;
+    string[] upgradeNames = 
     {
-        1,1,1,1,1,1
+        "Damage +",
+        "Health +",
+        "Num of Projectiles",
+        "Projectile Penetration +",
+        "XP Gain +",
+        "Gold Gain +",
+        "Pickup Range"
     };
+
+    int[] upgradeCosts = 
+    {
+        1, 1, 1, 1, 1, 1, 1
+    };
+
+    private int[] upgradeLevels =
+    {
+        0, 0, 0, 0, 0, 0, 0
+    };
+
     //damage, health, no of proj, proj pene, xp gain, gold gain
     void Start()
     {
@@ -21,13 +39,14 @@ public class UpgradeManager : MonoBehaviour
 
     void Update()
     {
-        
     }
 
     public void Init()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
         upgradePanel.SetActive(true);
-        goldText.text = ": "+player.gold;
+        UpdateUi();
     }
 
     public void Upgrade(int upgradeNo)
@@ -56,7 +75,12 @@ public class UpgradeManager : MonoBehaviour
                     player.goldGain++;
                     break;
             }
+
+            upgradeLevels[upgradeNo]++;
             player.gold -= upgradeCosts[upgradeNo];
+            upgradeCosts[upgradeNo] += Mathf.RoundToInt(upgradeCosts[upgradeNo] * 1.2f);
+            upgradeButtons[upgradeNo].GetComponent<Animation>().Play();
+            UpdateUi();
         }
     }
 
@@ -66,4 +90,14 @@ public class UpgradeManager : MonoBehaviour
         deathPanel.SetActive(true);
     }
 
+    void UpdateUi()
+    {
+        goldText.text = ": " + player.gold;
+        upgradeButtons = GameObject.FindGameObjectsWithTag("UpgradeButton");
+
+        for (int i = 0; i < upgradeButtons.Length; i++)
+        {
+            upgradeButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = upgradeNames[i]+": ["+upgradeLevels[i]+"]"+"\n($" + upgradeCosts[i] + ")";
+        }
+    }
 }
