@@ -17,7 +17,7 @@ public class EnemyType : MonoBehaviour
 
     public void Init(float pos)
     {
-        print("Spawn enemy");
+        //print("Spawn enemy");
         Instantiate(enemy, new Vector2(pos, 5.25f), Quaternion.identity);
     }
 }

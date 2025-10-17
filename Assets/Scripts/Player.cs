@@ -31,19 +31,37 @@ public class Player : MonoBehaviour
     UpgradeManager upgradeManager;
 
     public GameObject bloodDead;
+    
+    AudioManager audioManager;
+
+    public GameObject saveIcon;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Application.targetFrameRate = 180;
         upgradeManager = FindFirstObjectByType<UpgradeManager>();
+        audioManager = FindFirstObjectByType<AudioManager>();
         
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        
+        if (PlayerPrefs.GetInt("saved") == 1)
+        {
+            maxHealth = PlayerPrefs.GetInt("maxHealth");
+            damage =  PlayerPrefs.GetInt("damage");
+            numberOfProjectiles =  PlayerPrefs.GetInt("numberOfProjectiles");
+            xpGain = PlayerPrefs.GetInt("xpGain");
+            goldGain =  PlayerPrefs.GetInt("goldGain");
+        }
+        
+        health = maxHealth;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         transform.position+=transform.up * (Input.GetAxis("Vertical") * (speed*Time.deltaTime)) +  transform.right * (Input.GetAxis("Horizontal") * (speed*Time.deltaTime));
 
         attackTimer+=Time.deltaTime;
@@ -57,6 +75,11 @@ public class Player : MonoBehaviour
             }
 
             attackTimer = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            PlayerPrefs.SetInt("saved", 0);
         }
     }
 
@@ -92,12 +115,15 @@ public class Player : MonoBehaviour
 
     IEnumerator Flash()
     {
+        Camera.main.GetComponent<Animator>().SetTrigger("Shake");
         //0.35 secs at 0.05
         float flshscnds = 0.05f;
         //off on off on off on
         invincible = true;
         sprite.enabled = false;
         yield return new WaitForSeconds(flshscnds);
+        
+        Camera.main.GetComponent<Animator>().ResetTrigger("Shake");
         sprite.enabled = true;
         yield return new WaitForSeconds(flshscnds);
         sprite.enabled = false;
@@ -112,14 +138,16 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(flshscnds);
         sprite.enabled = true;
         invincible=false;
+        
     }
 
     IEnumerator SpawnProj()
     {
         for (int i = 0; i < numberOfProjectiles; i++)
         {
-            yield return new WaitForSeconds(0.2f);
+            audioManager.shoot.Play();
             attacks[0].Init(damage);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 
@@ -131,5 +159,17 @@ public class Player : MonoBehaviour
         //red screen filter
         //show upgrades board
         upgradeManager.Init();
+    }
+    
+    public void SaveData()
+    {
+        saveIcon.SetActive(true);
+        PlayerPrefs.SetInt("saved", 1);
+        PlayerPrefs.SetInt("maxHealth", maxHealth);
+        PlayerPrefs.SetInt("damage", damage);
+        PlayerPrefs.SetInt("numberOfProjectiles", numberOfProjectiles);
+        PlayerPrefs.SetInt("xpGain", xpGain);
+        PlayerPrefs.SetInt("goldGain", goldGain);
+        saveIcon.SetActive(false);
     }
 }

@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 public class Enemy : MonoBehaviour
 {
     public float speed;
+    public float sideSpeed;
 
     public bool shoots;
     public GameObject proj;
@@ -17,11 +18,14 @@ public class Enemy : MonoBehaviour
 
     private bool dir;
     private float moveTime;
-    private float movingTimer;
+    private float movingTimer;    AudioManager audioManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        audioManager = FindFirstObjectByType<AudioManager>();
+
+        dir = Random.Range(0, 1) == 0;
     }
 
     // Update is called once per frame
@@ -37,11 +41,21 @@ public class Enemy : MonoBehaviour
 
         if (dir)
         {
-            transform.position+=transform.right * speed* Time.deltaTime;
+            transform.position+=transform.right * sideSpeed* Time.deltaTime;
         }
         else
         {
-            transform.position-=transform.right * speed* Time.deltaTime;
+            transform.position-=transform.right * sideSpeed* Time.deltaTime;
+        }
+
+        if (transform.position.x >= 6 || transform.position.x <= -6)
+        {
+            dir = !dir;
+        }
+
+        if (transform.position.y <= -6)
+        {
+            transform.position += transform.up * 12;
         }
         
         transform.position+=transform.up*speed*Time.deltaTime;
@@ -62,6 +76,7 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("PlayerPellet"))
         {
             health -= other.GetComponent<Pellet>().damage;
+            audioManager.impact.Play();
             
             Destroy(other.gameObject);
             if (health <= 0)
