@@ -30,7 +30,7 @@ public class BossHealthSystem : MonoBehaviour
         {
             if (shieldHealth > 0)
             {
-                shieldHealth--;
+                shieldHealth-= other.GetComponent<Pellet>().damage;
                 if (_flickerRoutine == null)
                     _flickerRoutine = StartCoroutine(Flicker());
             }
@@ -42,12 +42,13 @@ public class BossHealthSystem : MonoBehaviour
                 }
                 if (_flickerRoutine == null)
                     _flickerRoutine = StartCoroutine(FlickerSprite());
-                health--;
+                health-=other.GetComponent<Pellet>().damage;
 
                 if (health <= 0)
                 {
                     FindFirstObjectByType<WaveManager>().inBossFight = false;
                     Destroy(this.gameObject);
+                    //END OF DEMO
                 }
             }
             Destroy(other.gameObject);

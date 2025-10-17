@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -43,6 +44,31 @@ public class UpgradeManager : MonoBehaviour
 
     public void Init()
     {
+        if (PlayerPrefs.GetInt("saved") == 1)
+        {
+            upgradeLevels = new int[]
+            {
+                PlayerPrefs.GetInt("damage") - 1,
+                PlayerPrefs.GetInt("maxHealth") - 3,
+                PlayerPrefs.GetInt("numberOfProjectiles")-1,
+                PlayerPrefs.GetInt("projectilePenetration")-1,
+                PlayerPrefs.GetInt("xpGain")-1,
+                PlayerPrefs.GetInt("goldGain")-1,
+                PlayerPrefs.GetInt("pickupRange")-1
+            };
+
+            upgradeCosts = new int[]
+            {
+                DetermineCost(1, upgradeLevels[0]),
+                DetermineCost(1, upgradeLevels[1]),
+                DetermineCost(1, upgradeLevels[2]),
+                DetermineCost(1, upgradeLevels[3]),
+                DetermineCost(1, upgradeLevels[4]),
+                DetermineCost(1, upgradeLevels[5]),
+                DetermineCost(1, upgradeLevels[6])
+            };
+        }
+        
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         upgradePanel.SetActive(true);
@@ -81,6 +107,7 @@ public class UpgradeManager : MonoBehaviour
             upgradeCosts[upgradeNo] += Mathf.RoundToInt(upgradeCosts[upgradeNo] * 1.2f);
             upgradeButtons[upgradeNo].GetComponent<Animation>().Play();
             UpdateUi();
+            player.SaveData();
         }
     }
 
@@ -100,4 +127,17 @@ public class UpgradeManager : MonoBehaviour
             upgradeButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = upgradeNames[i]+": ["+upgradeLevels[i]+"]"+"\n($" + upgradeCosts[i] + ")";
         }
     }
+
+    //NOT WORKIN...
+    public int DetermineCost(int cost, int level)
+    {
+        int cCo = cost;
+        for (int i = 0; i < level; i++)
+        {
+            cCo += Mathf.RoundToInt( cCo * 1.2f);
+        }
+
+        return cCo;
+    }
+    
 }

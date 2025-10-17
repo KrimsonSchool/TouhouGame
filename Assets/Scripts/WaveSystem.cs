@@ -42,8 +42,15 @@ public class WaveSystem : MonoBehaviour
             _timer += Time.deltaTime;
             if (_timer >= waveEntries[index].timing)
             {
-                print("spawn wit timing of " +  waveEntries[index].timing);
-                enemies[waveEntries[index].enemyIndex].Init(waveEntries[index].pos);
+                //print("spawn wit timing of " +  waveEntries[index].timing);
+                if (enemies[waveEntries[index].enemyIndex] != null)
+                {
+                    enemies[waveEntries[index].enemyIndex].Init(waveEntries[index].pos);
+                }
+                else
+                {
+                    Debug.LogError("INCORRECT ENEMY INDEX, CHECK WAVE TXT FILE...");
+                }
                 index++;
                 _timer = 0;
             }
@@ -52,7 +59,7 @@ public class WaveSystem : MonoBehaviour
         {
             waveEntries.Clear();
             //next wave or boss
-            print("Next Wave!");
+            //print("Next Wave!");
             await FindFirstObjectByType<WaveManager>().IncrementWave();
         }
     }
