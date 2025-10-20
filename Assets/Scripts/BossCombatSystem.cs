@@ -25,10 +25,13 @@ public class BossCombatSystem : MonoBehaviour
 
     private int index;
 
+    public int paused = 1;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ReadBossFile();
+        paused = 1;
     }
 
     // Update is called once per frame
@@ -36,7 +39,7 @@ public class BossCombatSystem : MonoBehaviour
     {
         if (index < bossEntries.Count)
         {
-            _timer += Time.deltaTime;
+            _timer += Time.deltaTime * paused;
             if (_timer >= bossEntries[index].timing)
             {
                 attacks[bossEntries[index].attackIndex].Init(1);

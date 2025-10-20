@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
 
         transform.position+=transform.up * (Input.GetAxis("Vertical") * (speed*Time.deltaTime)) +  transform.right * (Input.GetAxis("Horizontal") * (speed*Time.deltaTime));
 
-        attackTimer+=Time.deltaTime;
+        attackTimer += Time.deltaTime;
 
         if (attackTimer >= 0.1f)
         {
@@ -184,8 +184,8 @@ public class Player : MonoBehaviour
         //red screen filter
         //show upgrades board
         upgradeManager.Init();
-        health = 999;
-        invincible = true;
+
+        FindFirstObjectByType<BossCombatSystem>().paused = 0;
     }
     
     public void SaveData()
