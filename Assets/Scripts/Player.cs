@@ -184,6 +184,8 @@ public class Player : MonoBehaviour
         //red screen filter
         //show upgrades board
         upgradeManager.Init();
+        health = 999;
+        invincible = true;
     }
     
     public void SaveData()

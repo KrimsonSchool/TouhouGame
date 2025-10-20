@@ -139,7 +139,9 @@ MonoBehaviour:
   shoots: 1
   proj: {fileID: 5475159207093092618, guid: e4253625ec3876a64a5a81e17881bb01, type: 3}
   shootSpeed: 2
-  dropped: []
+  dropped:
+  - {fileID: 8832551604615321215, guid: ff656214f3aa97c9c97821ec84b5e55a, type: 3}
+  chance: 28000000
   health: 4
 --- !u!58 &8067991862155272724
 CircleCollider2D:

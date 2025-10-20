@@ -71,7 +71,9 @@ public class BossHealthSystem : MonoBehaviour
                     FindFirstObjectByType<WaveManager>().inBossFight = false;
                     Destroy(this.gameObject);
                     //END OF DEMO
-                    //eod.SetActive(true);
+                    eod.GetComponentInChildren<Image>(true).gameObject.SetActive(true);
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.Confined;
                 }
             }
             Destroy(other.gameObject);

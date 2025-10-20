@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public float shootSpeed;
 
     public GameObject[] dropped;
+    public int[] chance;
 
     public int health=3;
 
@@ -81,9 +82,12 @@ public class Enemy : MonoBehaviour
             Destroy(other.gameObject);
             if (health <= 0)
             {
-                foreach (GameObject drop in dropped)
+                for (int i = 0; i < dropped.Length; i++)
                 {
-                    Instantiate(drop, transform.position, Quaternion.identity);
+                    if (Random.Range(0, 100) <= chance[i])
+                    {
+                        Instantiate(dropped[i], transform.position, Quaternion.identity);
+                    }
                 }
 
                 Destroy(this.gameObject);
