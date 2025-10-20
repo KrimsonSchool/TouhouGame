@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossHealthSystem : MonoBehaviour
 {
@@ -11,17 +12,32 @@ public class BossHealthSystem : MonoBehaviour
     public int health;
     
     private Coroutine _flickerRoutine;
+
+    public GameObject eod;
+
+    Slider healthBar;
+    Slider shieldBar;
+
+    bool sixsixpersh;
+    bool thirthirpersh;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        eod = GameObject.Find("EOD");
+
+        healthBar = GameObject.Find("BossHealth").GetComponent<Slider>();
+        shieldBar = GameObject.Find("BossShield").GetComponent<Slider>();
+
+
+        healthBar.maxValue = health;
+        shieldBar.maxValue = shieldHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        //
+        healthBar.value = health;
+        shieldBar.value = shieldHealth;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -36,9 +52,15 @@ public class BossHealthSystem : MonoBehaviour
             }
             else
             {
-                if (health == 66 || health == 33)
+                if(health<=66 && !sixsixpersh)
                 {
-                    shieldHealth = 100 + (100-health);
+                    shieldHealth = 100 + (100 - health);
+                    sixsixpersh = true;
+                }
+                if (health <= 33 && !thirthirpersh)
+                {
+                    shieldHealth = 100 + (100 - health);
+                    thirthirpersh = true;
                 }
                 if (_flickerRoutine == null)
                     _flickerRoutine = StartCoroutine(FlickerSprite());
@@ -49,6 +71,9 @@ public class BossHealthSystem : MonoBehaviour
                     FindFirstObjectByType<WaveManager>().inBossFight = false;
                     Destroy(this.gameObject);
                     //END OF DEMO
+                    eod.GetComponentInChildren<Image>(true).gameObject.SetActive(true);
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.Confined;
                 }
             }
             Destroy(other.gameObject);

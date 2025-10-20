@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 103200367406118372}
   - component: {fileID: 583069465834457306}
   - component: {fileID: 8067991862155272724}
+  - component: {fileID: 2651127271236280287}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: EnemyPellet
@@ -138,7 +139,10 @@ MonoBehaviour:
   shoots: 1
   proj: {fileID: 5475159207093092618, guid: e4253625ec3876a64a5a81e17881bb01, type: 3}
   shootSpeed: 2
-  dropped: []
+  dropped:
+  - {fileID: 8832551604615321215, guid: ff656214f3aa97c9c97821ec84b5e55a, type: 3}
+  chance: 28000000
+  health: 4
 --- !u!58 &8067991862155272724
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -169,9 +173,36 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.69
+--- !u!50 &2651127271236280287
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9023076151922070761}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
