@@ -17,6 +17,9 @@ public class BossHealthSystem : MonoBehaviour
 
     Slider healthBar;
     Slider shieldBar;
+
+    bool sixsixpersh;
+    bool thirthirpersh;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -49,9 +52,15 @@ public class BossHealthSystem : MonoBehaviour
             }
             else
             {
-                if (health == 66 || health == 33)
+                if(health<=66 && !sixsixpersh)
                 {
-                    shieldHealth = 100 + (100-health);
+                    shieldHealth = 100 + (100 - health);
+                    sixsixpersh = true;
+                }
+                if (health <= 33 && !thirthirpersh)
+                {
+                    shieldHealth = 100 + (100 - health);
+                    thirthirpersh = true;
                 }
                 if (_flickerRoutine == null)
                     _flickerRoutine = StartCoroutine(FlickerSprite());
