@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossHealthSystem : MonoBehaviour
 {
@@ -13,17 +14,27 @@ public class BossHealthSystem : MonoBehaviour
     private Coroutine _flickerRoutine;
 
     public GameObject eod;
+
+    Slider healthBar;
+    Slider shieldBar;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         eod = GameObject.Find("EOD");
+
+        healthBar = GameObject.Find("BossHealth").GetComponent<Slider>();
+        shieldBar = GameObject.Find("BossShield").GetComponent<Slider>();
+
+
+        healthBar.maxValue = health;
+        shieldBar.maxValue = shieldHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        //
+        healthBar.value = health;
+        shieldBar.value = shieldHealth;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

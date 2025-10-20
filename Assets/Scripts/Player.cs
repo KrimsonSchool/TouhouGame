@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -35,6 +36,8 @@ public class Player : MonoBehaviour
     AudioManager audioManager;
 
     public GameObject saveIcon;
+
+    public Slider healthBar;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -61,7 +64,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        healthBar.maxValue = maxHealth;
+        healthBar.value = health;
+
         transform.position+=transform.up * (Input.GetAxis("Vertical") * (speed*Time.deltaTime)) +  transform.right * (Input.GetAxis("Horizontal") * (speed*Time.deltaTime));
 
         attackTimer+=Time.deltaTime;
@@ -80,6 +85,26 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             PlayerPrefs.SetInt("saved", 0);
+        }
+
+        //y = -5, 5
+        //x = -9, 9
+
+        if(transform.position.y>5)
+        {
+            transform.position += transform.up * -1;
+        }
+        if(transform.position.y <-5)
+        {
+            transform.position += transform.up * 1;
+        }
+        if (transform.position.x > 9)
+        {
+            transform.position += transform.right * -1;
+        }
+        if (transform.position.x < -9)
+        {
+            transform.position += transform.right * 1;
         }
     }
 

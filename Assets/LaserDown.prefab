@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoTarget: 0
   speed: 0
-  life: 5
+  life: 3
   damage: 1
 --- !u!70 &3082669936977549656
 CapsuleCollider2D:
