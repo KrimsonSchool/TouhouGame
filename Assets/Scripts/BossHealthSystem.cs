@@ -11,10 +11,12 @@ public class BossHealthSystem : MonoBehaviour
     public int health;
     
     private Coroutine _flickerRoutine;
+
+    public GameObject eod;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        eod = GameObject.Find("EOD");
     }
 
     // Update is called once per frame
@@ -49,6 +51,7 @@ public class BossHealthSystem : MonoBehaviour
                     FindFirstObjectByType<WaveManager>().inBossFight = false;
                     Destroy(this.gameObject);
                     //END OF DEMO
+                    //eod.SetActive(true);
                 }
             }
             Destroy(other.gameObject);

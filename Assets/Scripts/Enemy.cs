@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 
     public GameObject[] dropped;
 
-    private int health=3;
+    public int health=3;
 
     private bool dir;
     private float moveTime;

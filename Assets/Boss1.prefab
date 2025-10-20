@@ -110,9 +110,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceField: {fileID: 8435618160777155310}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 7153949824769480535}
   shieldHealth: 100
   health: 99
+  eod: {fileID: 0}
 --- !u!58 &2140640035931561279
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -234,7 +235,7 @@ GameObject:
   - component: {fileID: 3861021982747380672}
   - component: {fileID: 7153949824769480535}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: BossSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
