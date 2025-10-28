@@ -178,6 +178,7 @@ public class Player : MonoBehaviour
 
     public void Death()
     {
+        Instantiate(audioManager.playerDeath, transform.position, Quaternion.identity);
         //Time.timeScale = 0;
         bloodDead.SetActive(true);
         //restart to wave 1

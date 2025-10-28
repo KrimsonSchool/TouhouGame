@@ -19,7 +19,8 @@ public class Enemy : MonoBehaviour
 
     private bool dir;
     private float moveTime;
-    private float movingTimer;    AudioManager audioManager;
+    private float movingTimer;    
+    AudioManager audioManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,6 +53,7 @@ public class Enemy : MonoBehaviour
         if (transform.position.x >= 6 || transform.position.x <= -6)
         {
             dir = !dir;
+            movingTimer = 0;
         }
 
         if (transform.position.y <= -6)
@@ -78,6 +80,8 @@ public class Enemy : MonoBehaviour
         {
             health -= other.GetComponent<Pellet>().damage;
             audioManager.impact.Play();
+            
+            Instantiate(audioManager.hitEffect, other.transform.position, Quaternion.identity);
             
             Destroy(other.gameObject);
             if (health <= 0)

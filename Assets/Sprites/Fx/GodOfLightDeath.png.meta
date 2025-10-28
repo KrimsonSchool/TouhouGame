@@ -1,0 +1,1105 @@
+fileFormatVersion: 2
+guid: 2761dc9846a39cd218cacceb3ea77bf6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7903583655456413115
+    second: GodOfLightDeath_0
+  - first:
+      213: -3873998248107464856
+    second: GodOfLightDeath_1
+  - first:
+      213: 92880723976307277
+    second: GodOfLightDeath_2
+  - first:
+      213: 4183847109587843309
+    second: GodOfLightDeath_3
+  - first:
+      213: 3678517076865014546
+    second: GodOfLightDeath_4
+  - first:
+      213: 2756760791971459417
+    second: GodOfLightDeath_5
+  - first:
+      213: 4886026883378702747
+    second: GodOfLightDeath_6
+  - first:
+      213: -2246824660036968963
+    second: GodOfLightDeath_7
+  - first:
+      213: -7579091492783877996
+    second: GodOfLightDeath_8
+  - first:
+      213: -5629655945603165557
+    second: GodOfLightDeath_9
+  - first:
+      213: 8042096662243853164
+    second: GodOfLightDeath_10
+  - first:
+      213: -1561817485392837463
+    second: GodOfLightDeath_11
+  - first:
+      213: 2600861424543921864
+    second: GodOfLightDeath_12
+  - first:
+      213: -1369773079381165523
+    second: GodOfLightDeath_13
+  - first:
+      213: 910955447642554647
+    second: GodOfLightDeath_14
+  - first:
+      213: 1849258890339395617
+    second: GodOfLightDeath_15
+  - first:
+      213: -3371448116348210428
+    second: GodOfLightDeath_16
+  - first:
+      213: 3913551633606744207
+    second: GodOfLightDeath_17
+  - first:
+      213: 9215978844683263765
+    second: GodOfLightDeath_18
+  - first:
+      213: 966984640403678413
+    second: GodOfLightDeath_19
+  - first:
+      213: 2875264829881533753
+    second: GodOfLightDeath_20
+  - first:
+      213: 1274741863831706785
+    second: GodOfLightDeath_21
+  - first:
+      213: -5787871119691146015
+    second: GodOfLightDeath_22
+  - first:
+      213: 4587431618644884116
+    second: GodOfLightDeath_23
+  - first:
+      213: 3421952770961657294
+    second: GodOfLightDeath_24
+  - first:
+      213: 8032762793667553679
+    second: GodOfLightDeath_25
+  - first:
+      213: 3472275170534258365
+    second: GodOfLightDeath_26
+  - first:
+      213: 5122684142487379430
+    second: GodOfLightDeath_27
+  - first:
+      213: 7083225700534060229
+    second: GodOfLightDeath_28
+  - first:
+      213: -2142300654012236220
+    second: GodOfLightDeath_29
+  - first:
+      213: -3247082566070724796
+    second: GodOfLightDeath_30
+  - first:
+      213: -1217503914782831616
+    second: GodOfLightDeath_31
+  - first:
+      213: -764476795853339581
+    second: GodOfLightDeath_32
+  - first:
+      213: 4213937908456605411
+    second: GodOfLightDeath_33
+  - first:
+      213: -2575480179579125621
+    second: GodOfLightDeath_34
+  - first:
+      213: -1114281379662450957
+    second: GodOfLightDeath_35
+  - first:
+      213: -394115321504064870
+    second: GodOfLightDeath_36
+  - first:
+      213: 2535116205732494247
+    second: GodOfLightDeath_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GodOfLightDeath_0
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54aefe35a84d05290800000000000000
+      internalID: -7903583655456413115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_1
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 867a1116e1bcc3ac0800000000000000
+      internalID: -3873998248107464856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_2
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d42c61fb68af94100800000000000000
+      internalID: 92880723976307277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_3
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de8378977c2001a30800000000000000
+      internalID: 4183847109587843309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_4
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21b5fb2bac7bc0330800000000000000
+      internalID: 3678517076865014546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_5
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 951fe28955bf14620800000000000000
+      internalID: 2756760791971459417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_6
+      rect:
+        serializedVersion: 2
+        x: 1588
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b99ebca2097aec340800000000000000
+      internalID: 4886026883378702747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_7
+      rect:
+        serializedVersion: 2
+        x: 1844
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfd98e930eca1d0e0800000000000000
+      internalID: -2246824660036968963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_8
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4909e6c6178a1d690800000000000000
+      internalID: -7579091492783877996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_9
+      rect:
+        serializedVersion: 2
+        x: 2356
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8258a2aeb17fd1b0800000000000000
+      internalID: -5629655945603165557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_10
+      rect:
+        serializedVersion: 2
+        x: 2612
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6346623e444b9f60800000000000000
+      internalID: 8042096662243853164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_11
+      rect:
+        serializedVersion: 2
+        x: 2868
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a48a2b954f435ae0800000000000000
+      internalID: -1561817485392837463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_12
+      rect:
+        serializedVersion: 2
+        x: 3124
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c6f4f78fad181420800000000000000
+      internalID: 2600861424543921864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_13
+      rect:
+        serializedVersion: 2
+        x: 3380
+        y: 13
+        width: 165
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2ab79444a69dfce0800000000000000
+      internalID: -1369773079381165523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_14
+      rect:
+        serializedVersion: 2
+        x: 3636
+        y: 13
+        width: 165
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71101f6372d54ac00800000000000000
+      internalID: 910955447642554647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_15
+      rect:
+        serializedVersion: 2
+        x: 3892
+        y: 13
+        width: 165
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 128a968b923e9a910800000000000000
+      internalID: 1849258890339395617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_16
+      rect:
+        serializedVersion: 2
+        x: 4148
+        y: 13
+        width: 165
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 403b7660dc53631d0800000000000000
+      internalID: -3371448116348210428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_17
+      rect:
+        serializedVersion: 2
+        x: 4404
+        y: 13
+        width: 165
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f889743d97abf4630800000000000000
+      internalID: 3913551633606744207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_18
+      rect:
+        serializedVersion: 2
+        x: 4660
+        y: 13
+        width: 165
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51f5cde4eebb5ef70800000000000000
+      internalID: 9215978844683263765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_19
+      rect:
+        serializedVersion: 2
+        x: 4916
+        y: 13
+        width: 165
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc4258a386b6b6d00800000000000000
+      internalID: 966984640403678413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_20
+      rect:
+        serializedVersion: 2
+        x: 5172
+        y: 13
+        width: 165
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9354344012ef6e720800000000000000
+      internalID: 2875264829881533753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_21
+      rect:
+        serializedVersion: 2
+        x: 5428
+        y: 13
+        width: 165
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ac1206a8fac0b110800000000000000
+      internalID: 1274741863831706785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_22
+      rect:
+        serializedVersion: 2
+        x: 5684
+        y: 13
+        width: 165
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ec1111d1e95dafa0800000000000000
+      internalID: -5787871119691146015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_23
+      rect:
+        serializedVersion: 2
+        x: 5940
+        y: 13
+        width: 165
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49a39bc70c4d9af30800000000000000
+      internalID: 4587431618644884116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_24
+      rect:
+        serializedVersion: 2
+        x: 6196
+        y: 13
+        width: 165
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecd45573ae73d7f20800000000000000
+      internalID: 3421952770961657294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_25
+      rect:
+        serializedVersion: 2
+        x: 6452
+        y: 13
+        width: 165
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f896781933b1a7f60800000000000000
+      internalID: 8032762793667553679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_26
+      rect:
+        serializedVersion: 2
+        x: 6708
+        y: 13
+        width: 165
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db67a16eedfff2030800000000000000
+      internalID: 3472275170534258365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_27
+      rect:
+        serializedVersion: 2
+        x: 6964
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ed9c71261e671740800000000000000
+      internalID: 5122684142487379430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_28
+      rect:
+        serializedVersion: 2
+        x: 7220
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c400400f3cac4260800000000000000
+      internalID: 7083225700534060229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_29
+      rect:
+        serializedVersion: 2
+        x: 7476
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44e7383d7e40542e0800000000000000
+      internalID: -2142300654012236220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_30
+      rect:
+        serializedVersion: 2
+        x: 7732
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4479df42c9b00f2d0800000000000000
+      internalID: -3247082566070724796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_31
+      rect:
+        serializedVersion: 2
+        x: 7988
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00cc8bed3ae8a1fe0800000000000000
+      internalID: -1217503914782831616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_32
+      rect:
+        serializedVersion: 2
+        x: 8244
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 344022097680465f0800000000000000
+      internalID: -764476795853339581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_33
+      rect:
+        serializedVersion: 2
+        x: 8500
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e6cb1b833aea7a30800000000000000
+      internalID: 4213937908456605411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_34
+      rect:
+        serializedVersion: 2
+        x: 8756
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8080221c6e024cd0800000000000000
+      internalID: -2575480179579125621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_35
+      rect:
+        serializedVersion: 2
+        x: 9012
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fe23692df64980f0800000000000000
+      internalID: -1114281379662450957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_36
+      rect:
+        serializedVersion: 2
+        x: 9268
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9a16350432d78af0800000000000000
+      internalID: -394115321504064870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodOfLightDeath_37
+      rect:
+        serializedVersion: 2
+        x: 9524
+        y: 13
+        width: 165
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ab750be1ca8e2320800000000000000
+      internalID: 2535116205732494247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      GodOfLightDeath_0: -7903583655456413115
+      GodOfLightDeath_1: -3873998248107464856
+      GodOfLightDeath_10: 8042096662243853164
+      GodOfLightDeath_11: -1561817485392837463
+      GodOfLightDeath_12: 2600861424543921864
+      GodOfLightDeath_13: -1369773079381165523
+      GodOfLightDeath_14: 910955447642554647
+      GodOfLightDeath_15: 1849258890339395617
+      GodOfLightDeath_16: -3371448116348210428
+      GodOfLightDeath_17: 3913551633606744207
+      GodOfLightDeath_18: 9215978844683263765
+      GodOfLightDeath_19: 966984640403678413
+      GodOfLightDeath_2: 92880723976307277
+      GodOfLightDeath_20: 2875264829881533753
+      GodOfLightDeath_21: 1274741863831706785
+      GodOfLightDeath_22: -5787871119691146015
+      GodOfLightDeath_23: 4587431618644884116
+      GodOfLightDeath_24: 3421952770961657294
+      GodOfLightDeath_25: 8032762793667553679
+      GodOfLightDeath_26: 3472275170534258365
+      GodOfLightDeath_27: 5122684142487379430
+      GodOfLightDeath_28: 7083225700534060229
+      GodOfLightDeath_29: -2142300654012236220
+      GodOfLightDeath_3: 4183847109587843309
+      GodOfLightDeath_30: -3247082566070724796
+      GodOfLightDeath_31: -1217503914782831616
+      GodOfLightDeath_32: -764476795853339581
+      GodOfLightDeath_33: 4213937908456605411
+      GodOfLightDeath_34: -2575480179579125621
+      GodOfLightDeath_35: -1114281379662450957
+      GodOfLightDeath_36: -394115321504064870
+      GodOfLightDeath_37: 2535116205732494247
+      GodOfLightDeath_4: 3678517076865014546
+      GodOfLightDeath_5: 2756760791971459417
+      GodOfLightDeath_6: 4886026883378702747
+      GodOfLightDeath_7: -2246824660036968963
+      GodOfLightDeath_8: -7579091492783877996
+      GodOfLightDeath_9: -5629655945603165557
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

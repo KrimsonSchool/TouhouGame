@@ -1,13 +1,9 @@
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class Temp : MonoBehaviour
 {
-    public AudioSource shoot;
-    public AudioSource impact;
-    public AudioSource death;
-
-    public GameObject hitEffect;
-    public GameObject playerDeath;
+    public float life;
+    private float timer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,6 +13,10 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+        if (timer >= life)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

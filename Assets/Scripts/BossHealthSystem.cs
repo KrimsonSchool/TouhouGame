@@ -20,9 +20,13 @@ public class BossHealthSystem : MonoBehaviour
 
     bool sixsixpersh;
     bool thirthirpersh;
+    
+    AudioManager audioManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
+    { 
+        audioManager = FindFirstObjectByType<AudioManager>();
+
         eod = GameObject.Find("EOD");
 
         healthBar = GameObject.Find("BossHealth").GetComponent<Slider>();
@@ -71,11 +75,16 @@ public class BossHealthSystem : MonoBehaviour
                     FindFirstObjectByType<WaveManager>().inBossFight = false;
                     Destroy(this.gameObject);
                     //END OF DEMO
-                    eod.GetComponentInChildren<Image>(true).gameObject.SetActive(true);
-                    Cursor.visible = true;
-                    Cursor.lockState = CursorLockMode.Confined;
+                    if (gameObject.name == "Boss2")
+                    {
+                        eod.GetComponentInChildren<Image>(true).gameObject.SetActive(true);
+                        Cursor.visible = true;
+                        Cursor.lockState = CursorLockMode.Confined;
+                    }
                 }
             }
+            Instantiate(audioManager.hitEffect, other.transform.position, Quaternion.identity);
+
             Destroy(other.gameObject);
         }
     }
