@@ -187,6 +187,7 @@ public class Player : MonoBehaviour
         upgradeManager.Init();
 
         FindFirstObjectByType<BossCombatSystem>().paused = 0;
+        gameObject.SetActive(false);
     }
     
     public void SaveData()
