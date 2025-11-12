@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,6 +39,11 @@ public class Player : MonoBehaviour
     public GameObject saveIcon;
 
     public Slider healthBar;
+
+    public SpriteRenderer soul;
+
+    public float power;
+    public TextMeshProUGUI powerLevel;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -58,7 +64,7 @@ public class Player : MonoBehaviour
         }
         
         health = maxHealth;
-
+        power = 5;
     }
 
     // Update is called once per frame
@@ -106,6 +112,32 @@ public class Player : MonoBehaviour
         {
             transform.position += transform.right * 1;
         }
+
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            if (power > 0)
+            {
+                Time.timeScale = 0.25f;
+                soul.enabled = true;
+                print(sprite.color);
+                sprite.color = new Color(1, 1, 1, 0.5f);
+                power -= Time.deltaTime;
+                if(power <= 0)
+                {
+                    Time.timeScale = 1;
+                    soul.enabled = false;
+                    sprite.color = new Color(1, 1, 1, 1);
+                }
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            Time.timeScale = 1;
+            soul.enabled = false;
+            sprite.color = new Color(1, 1, 1, 1);
+        }
+
+        powerLevel.text = "power: "+ (float)System.Math.Round(power, 2);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -187,7 +219,7 @@ public class Player : MonoBehaviour
         upgradeManager.Init();
 
         FindFirstObjectByType<BossCombatSystem>().paused = 0;
-        gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
     
     public void SaveData()
