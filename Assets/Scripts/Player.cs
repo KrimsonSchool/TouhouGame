@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
 
     public float power;
     public TextMeshProUGUI powerLevel;
+    public Slider powerBar;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -65,6 +66,7 @@ public class Player : MonoBehaviour
         
         health = maxHealth;
         power = 5;
+        powerBar.maxValue = power;
     }
 
     // Update is called once per frame
@@ -138,6 +140,7 @@ public class Player : MonoBehaviour
         }
 
         powerLevel.text = "power: "+ (float)System.Math.Round(power, 2);
+        powerBar.value = power;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -35,6 +35,11 @@ public class BossHealthSystem : MonoBehaviour
 
         healthBar.maxValue = health;
         shieldBar.maxValue = shieldHealth;
+
+        healthBar.enabled = true;
+        shieldBar.enabled = true;
+
+
     }
 
     // Update is called once per frame
@@ -42,6 +47,23 @@ public class BossHealthSystem : MonoBehaviour
     {
         healthBar.value = health;
         shieldBar.value = shieldHealth;
+
+        if (health <= 0)
+        {
+            healthBar.enabled = false;
+        }
+        else
+        {
+            healthBar.enabled = true;
+        }
+        if (shieldHealth <= 0)
+        {
+            shieldBar.enabled = false;
+        }
+        else
+        {
+            shieldBar.enabled = true;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
