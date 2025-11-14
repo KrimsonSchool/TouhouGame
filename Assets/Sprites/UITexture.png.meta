@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a31c8c5393ed81344894619991f86682
+guid: 4e7412882ed0e76369a7bfec417895be
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5416124273589306852
-    second: lightbossFF_0
+      213: 845180416391925592
+    second: UITexture_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lightbossFF_0
+      name: UITexture_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 12
-        width: 230
-        height: 232
+        x: 10
+        y: 8
+        width: 108
+        height: 111
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c1ab6554baf06d4b0800000000000000
-      internalID: -5416124273589306852
+      spriteID: 85f482a5c1faabb00800000000000000
+      internalID: 845180416391925592
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 61da0291d6c2dd924a8bf2c869333653
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      lightbossFF_0: -5416124273589306852
+      UITexture_0: 845180416391925592
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

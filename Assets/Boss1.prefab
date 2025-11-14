@@ -85,6 +85,7 @@ MonoBehaviour:
   - {fileID: 8639849142176813958}
   - {fileID: 6589675865916741928}
   fileName: boss1.txt
+  paused: 1
 --- !u!114 &1678442382123221285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +115,7 @@ MonoBehaviour:
   shieldHealth: 100
   health: 99
   eod: {fileID: 0}
+  powerup: {fileID: 5376570703588983530, guid: e18358a78288586d1acb75e504a17afe, type: 3}
 --- !u!58 &2140640035931561279
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -526,7 +528,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.23, y: 0.23, z: 0.23}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2068198600342178539}
@@ -575,7 +577,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -6052765880073081200, guid: d3f3bbedaf45164638a22e0a90bd82ac, type: 3}
+  m_Sprite: {fileID: -2391788926424676157, guid: 588a80dcd8e70b64ab8c575cd0aed1e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.6862745}
   m_FlipX: 0
   m_FlipY: 0

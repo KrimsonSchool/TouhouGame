@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class AudioManager : MonoBehaviour
 
     public GameObject hitEffect;
     public GameObject playerDeath;
+    
+    public Slider healthBar;
+    public Slider shieldBar;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

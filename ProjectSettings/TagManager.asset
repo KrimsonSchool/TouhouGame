@@ -9,6 +9,7 @@ TagManager:
   - Gold
   - Xp
   - UpgradeButton
+  - Powerup
   layers:
   - Default
   - TransparentFX

@@ -8,13 +8,15 @@ public class UpgradeManager : MonoBehaviour
     public GameObject deathPanel;
     Player player;
     public TextMeshProUGUI goldText;
+    
+    public float priceIncreaseAmount;
 
     private GameObject[] upgradeButtons;
     string[] upgradeNames = 
     {
         "Damage +",
         "Health +",
-        "Num of Projectiles",
+        "Shoot Speed +",
         "Projectile Penetration +",
         "XP Gain +",
         "Gold Gain +",
@@ -23,7 +25,7 @@ public class UpgradeManager : MonoBehaviour
 
     int[] upgradeCosts = 
     {
-        1, 1, 1, 1, 1, 1, 1
+        1, 1, 2, 1, 5, 1, 1
     };
 
     private int[] upgradeLevels =
@@ -49,7 +51,7 @@ public class UpgradeManager : MonoBehaviour
             {
                 PlayerPrefs.GetInt("damage") - 1,
                 PlayerPrefs.GetInt("maxHealth") - 3,
-                PlayerPrefs.GetInt("numberOfProjectiles")-1,
+                PlayerPrefs.GetInt("shootSpeed")-1,
                 PlayerPrefs.GetInt("projectilePenetration")-1,
                 PlayerPrefs.GetInt("xpGain")-1,
                 PlayerPrefs.GetInt("goldGain")-1,
@@ -58,13 +60,13 @@ public class UpgradeManager : MonoBehaviour
 
             upgradeCosts = new int[]
             {
-                DetermineCost(1, upgradeLevels[0]),
-                DetermineCost(1, upgradeLevels[1]),
-                DetermineCost(1, upgradeLevels[2]),
-                DetermineCost(1, upgradeLevels[3]),
-                DetermineCost(1, upgradeLevels[4]),
-                DetermineCost(1, upgradeLevels[5]),
-                DetermineCost(1, upgradeLevels[6])
+                DetermineCost(upgradeCosts[0], upgradeLevels[0]),
+                DetermineCost(upgradeCosts[1], upgradeLevels[1]),
+                DetermineCost(upgradeCosts[2], upgradeLevels[2]),
+                DetermineCost(upgradeCosts[3], upgradeLevels[3]),
+                DetermineCost(upgradeCosts[4], upgradeLevels[4]),
+                DetermineCost(upgradeCosts[5], upgradeLevels[5]),
+                DetermineCost(upgradeCosts[6], upgradeLevels[6])
             };
         }
         
@@ -88,7 +90,7 @@ public class UpgradeManager : MonoBehaviour
                     player.health++;
                     break;
                 case 2:
-                    player.numberOfProjectiles++;
+                    player.shootSpeedLevel++;
                     break;
                 case 3:
                     player.projectilePenetration++;
@@ -103,7 +105,7 @@ public class UpgradeManager : MonoBehaviour
 
             upgradeLevels[upgradeNo]++;
             player.gold -= upgradeCosts[upgradeNo];
-            upgradeCosts[upgradeNo] += Mathf.RoundToInt(upgradeCosts[upgradeNo] * 1.2f);
+            upgradeCosts[upgradeNo] += Mathf.RoundToInt(upgradeCosts[upgradeNo] * priceIncreaseAmount);
             upgradeButtons[upgradeNo].GetComponent<Animation>().Play();
             UpdateUi();
             player.SaveData();
@@ -133,7 +135,7 @@ public class UpgradeManager : MonoBehaviour
         int cCo = cost;
         for (int i = 0; i < level; i++)
         {
-            cCo += Mathf.RoundToInt( cCo * 1.2f);
+            cCo += Mathf.RoundToInt( cCo * priceIncreaseAmount);
         }
 
         return cCo;

@@ -32,6 +32,7 @@ public class WaveManager : MonoBehaviour
             Debug.LogWarning("At Wave "+ waveIndex);
             if (waveIndex % 5 == 0)
             {
+                //dialogue first, then boss spawn...
                 print("Spawn boss index "+ bossIndex);
                 Instantiate(bosses[bossIndex], transform.position, Quaternion.identity);
                 inBossFight = true;

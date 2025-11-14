@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public int health = 3;
     public int maxHealth = 3;
     public int damage = 1;
-    public int numberOfProjectiles;
+    //public int numberOfProjectiles;
     public int projectilePenetration;//pellet health, when hit enemy reduce by 1
     public int xpGain;
     public int goldGain;
@@ -45,9 +45,16 @@ public class Player : MonoBehaviour
     public float power;
     public TextMeshProUGUI powerLevel;
     public Slider powerBar;
+
+    public float shootSpeed;
+    float sP;
+    public int shootSpeedLevel;
+
+    private bool dead;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        sP = shootSpeed;
         Application.targetFrameRate = 180;
         upgradeManager = FindFirstObjectByType<UpgradeManager>();
         audioManager = FindFirstObjectByType<AudioManager>();
@@ -59,19 +66,29 @@ public class Player : MonoBehaviour
         {
             maxHealth = PlayerPrefs.GetInt("maxHealth");
             damage =  PlayerPrefs.GetInt("damage");
-            numberOfProjectiles =  PlayerPrefs.GetInt("numberOfProjectiles");
+            sP =  shootSpeed - (PlayerPrefs.GetInt("shootSpeed")* 0.025f);
+            shootSpeedLevel = PlayerPrefs.GetInt("shootSpeed");
             xpGain = PlayerPrefs.GetInt("xpGain");
             goldGain =  PlayerPrefs.GetInt("goldGain");
+            
+            print("Shoot speed lvl: "+PlayerPrefs.GetInt("shootSpeed")+ " which equates to " + sP+" secs per shot");
         }
         
         health = maxHealth;
         power = 5;
         powerBar.maxValue = power;
+
+        //shootSpeed = 0.2f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (sP <= 0)
+        {
+            sP = 0.05f;
+        }
+        
         healthBar.maxValue = maxHealth;
         healthBar.value = health;
 
@@ -79,7 +96,7 @@ public class Player : MonoBehaviour
 
         attackTimer += Time.deltaTime;
 
-        if (attackTimer >= 0.1f)
+        if (attackTimer >= sP)
         {
             if (Input.GetKey(KeyCode.Space))
             {
@@ -145,7 +162,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("EnemyPellet") && !invincible)
+        if (other.CompareTag("EnemyPellet") && !invincible && !dead)
         {
             Destroy(other.gameObject);
             health--;
@@ -155,13 +172,12 @@ public class Player : MonoBehaviour
             }
             StartCoroutine(Flash());
         }
-
-        if (other.CompareTag("Gold"))
+        if (other.CompareTag("Gold") && !dead)
         {
             Destroy(other.gameObject);
             gold+= goldGain;
         }
-        if (other.CompareTag("Xp"))
+        if (other.CompareTag("Xp") && !dead)
         {
             xp+=xpGain;
             if (xp >= xpMax)
@@ -170,6 +186,27 @@ public class Player : MonoBehaviour
                 xpMax += (xpMax / 7);
                 level++;
             }
+        }
+        if (other.CompareTag("Powerup") && !dead)
+        {
+            Powerup p = other.GetComponent<Powerup>();
+            switch (p.powerupType)
+            {
+                case 0:
+                    sP -= 0.025f;
+                    break;
+                case 1:
+                    damage += 1;
+                    break;
+                case 2:
+                    maxHealth += 1;
+                    break;
+                case 3:
+                    
+                    health += 1;
+                    break;
+            }
+            Destroy(other.gameObject);
         }
     }
 
@@ -203,26 +240,25 @@ public class Player : MonoBehaviour
 
     IEnumerator SpawnProj()
     {
-        for (int i = 0; i < numberOfProjectiles; i++)
-        {
-            audioManager.shoot.Play();
-            attacks[0].Init(damage);
-            yield return new WaitForSeconds(0.2f);
-        }
+        audioManager.shoot.Play();
+        attacks[0].Init(damage);
+        yield return new WaitForSeconds(0.2f);
     }
 
     public void Death()
     {
+        dead = true;
+        Time.timeScale = 1;
         Instantiate(audioManager.playerDeath, transform.position, Quaternion.identity);
-        //Time.timeScale = 0;
         bloodDead.SetActive(true);
-        //restart to wave 1
-        //red screen filter
-        //show upgrades board
         upgradeManager.Init();
 
-        FindFirstObjectByType<BossCombatSystem>().paused = 0;
-        Destroy(this.gameObject);
+        if (FindFirstObjectByType<BossCombatSystem>() != null)
+        {
+            FindFirstObjectByType<BossCombatSystem>().paused = 0;
+        }
+
+        print("i want kill " + gameObject.name);
     }
     
     public void SaveData()
@@ -231,7 +267,7 @@ public class Player : MonoBehaviour
         PlayerPrefs.SetInt("saved", 1);
         PlayerPrefs.SetInt("maxHealth", maxHealth);
         PlayerPrefs.SetInt("damage", damage);
-        PlayerPrefs.SetInt("numberOfProjectiles", numberOfProjectiles);
+        PlayerPrefs.SetInt("shootSpeed", shootSpeedLevel);
         PlayerPrefs.SetInt("xpGain", xpGain);
         PlayerPrefs.SetInt("goldGain", goldGain);
         saveIcon.SetActive(false);

@@ -22,6 +22,8 @@ public class BossHealthSystem : MonoBehaviour
     bool thirthirpersh;
     
     AudioManager audioManager;
+
+    public GameObject powerup;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     { 
@@ -29,40 +31,42 @@ public class BossHealthSystem : MonoBehaviour
 
         eod = GameObject.Find("EOD");
 
-        healthBar = GameObject.Find("BossHealth").GetComponent<Slider>();
-        shieldBar = GameObject.Find("BossShield").GetComponent<Slider>();
+        healthBar = audioManager.healthBar;
+        shieldBar = audioManager.shieldBar;
 
 
         healthBar.maxValue = health;
         shieldBar.maxValue = shieldHealth;
-
-        healthBar.enabled = true;
-        shieldBar.enabled = true;
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthBar.value = health;
-        shieldBar.value = shieldHealth;
+        if (healthBar.enabled)
+        {
+            healthBar.value = health;
+        }
+
+        if (shieldBar.enabled)
+        {
+            shieldBar.value = shieldHealth;
+        }
 
         if (health <= 0)
         {
-            healthBar.enabled = false;
+            healthBar.gameObject.SetActive(false);
         }
         else
         {
-            healthBar.enabled = true;
+            healthBar.gameObject.SetActive(true);
         }
         if (shieldHealth <= 0)
         {
-            shieldBar.enabled = false;
+            shieldBar.gameObject.SetActive(false);
         }
         else
         {
-            shieldBar.enabled = true;
+            shieldBar.gameObject.SetActive(true);
         }
     }
 
@@ -95,6 +99,8 @@ public class BossHealthSystem : MonoBehaviour
                 if (health <= 0)
                 {
                     FindFirstObjectByType<WaveManager>().inBossFight = false;
+                    Powerup pw = Instantiate(powerup, transform.position, Quaternion.identity).GetComponent<Powerup>();
+                    pw.powerupType = 3;
                     Destroy(this.gameObject);
                     //END OF DEMO
                     if (gameObject.name == "Boss2")
