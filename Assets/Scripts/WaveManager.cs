@@ -33,10 +33,9 @@ public class WaveManager : MonoBehaviour
             if (waveIndex % 5 == 0)
             {
                 //dialogue first, then boss spawn...
-                print("Spawn boss index "+ bossIndex);
-                Instantiate(bosses[bossIndex], transform.position, Quaternion.identity);
+                print("Boss time!!!");
+                FindAnyObjectByType<DialogueManager>().StartConversation(bossIndex);
                 inBossFight = true;
-                bossIndex++;
             }
             else
             {
@@ -45,5 +44,13 @@ public class WaveManager : MonoBehaviour
                 await waveSystem.ReadWaveFile();
             }
         }
+    }
+
+    public void SpawnBoss(int index)
+    {
+        bossIndex = index;
+        print("Spawn boss index "+ bossIndex);
+        Instantiate(bosses[bossIndex], transform.position, Quaternion.identity);
+        bossIndex++;
     }
 }

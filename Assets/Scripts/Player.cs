@@ -6,51 +6,39 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    [Header("Values")]
     public float speed;
-    
-    public Attack[] attacks;
-
     private float attackTimer;
-    
-    public SpriteRenderer sprite;
-
     private bool invincible;
-    
     public int health = 3;
     public int maxHealth = 3;
     public int damage = 1;
-    //public int numberOfProjectiles;
     public int projectilePenetration;//pellet health, when hit enemy reduce by 1
     public int xpGain;
     public int goldGain;
-    
     public int gold;
     public int xp;
-
     private int level=1;
     private int xpMax = 10;
-    
-    UpgradeManager upgradeManager;
-
-    public GameObject bloodDead;
-    
-    AudioManager audioManager;
-
-    public GameObject saveIcon;
-
-    public Slider healthBar;
-
-    public SpriteRenderer soul;
-
-    public float power;
-    public TextMeshProUGUI powerLevel;
-    public Slider powerBar;
-
     public float shootSpeed;
     float sP;
     public int shootSpeedLevel;
-
     private bool dead;
+    public float power;
+    
+    [Space]
+    [Header("UI Elements")]
+    public GameObject bloodDead;
+    public GameObject saveIcon;
+    public Slider healthBar;
+    public TextMeshProUGUI healthText;
+    public SpriteRenderer soul;
+    public TextMeshProUGUI powerLevel;
+    public Slider powerBar;
+    public SpriteRenderer sprite;
+    public Attack[] attacks;
+    UpgradeManager upgradeManager;
+    AudioManager audioManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -84,80 +72,94 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (sP <= 0)
+        if (!dead)
         {
-            sP = 0.05f;
-        }
-        
-        healthBar.maxValue = maxHealth;
-        healthBar.value = health;
-
-        transform.position+=transform.up * (Input.GetAxis("Vertical") * (speed*Time.deltaTime)) +  transform.right * (Input.GetAxis("Horizontal") * (speed*Time.deltaTime));
-
-        attackTimer += Time.deltaTime;
-
-        if (attackTimer >= sP)
-        {
-            if (Input.GetKey(KeyCode.Space))
+            if (sP <= 0)
             {
-                //shoot
-                StartCoroutine(SpawnProj());
+                sP = 0.05f;
             }
 
-            attackTimer = 0;
-        }
+            healthBar.maxValue = maxHealth;
+            healthBar.value = health;
+            healthText.text = "HEALTH: "+ health + "/" + maxHealth;
 
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            PlayerPrefs.SetInt("saved", 0);
-        }
+            transform.position += transform.up * (Input.GetAxis("Vertical") * (speed * Time.deltaTime)) +
+                                  transform.right * (Input.GetAxis("Horizontal") * (speed * Time.deltaTime));
 
-        //y = -5, 5
-        //x = -9, 9
+            attackTimer += Time.deltaTime;
 
-        if(transform.position.y>5)
-        {
-            transform.position += transform.up * -1;
-        }
-        if(transform.position.y <-5)
-        {
-            transform.position += transform.up * 1;
-        }
-        if (transform.position.x > 9)
-        {
-            transform.position += transform.right * -1;
-        }
-        if (transform.position.x < -9)
-        {
-            transform.position += transform.right * 1;
-        }
-
-        if (Input.GetKey(KeyCode.LeftControl))
-        {
-            if (power > 0)
+            if (Input.GetKeyUp(KeyCode.Space))
             {
-                Time.timeScale = 0.25f;
-                soul.enabled = true;
-                print(sprite.color);
-                sprite.color = new Color(1, 1, 1, 0.5f);
-                power -= Time.deltaTime;
-                if(power <= 0)
+                attackTimer = sP;
+            }
+            if (attackTimer >= sP)
+            {
+                if (Input.GetKey(KeyCode.Space))
                 {
-                    Time.timeScale = 1;
-                    soul.enabled = false;
-                    sprite.color = new Color(1, 1, 1, 1);
+                    //shoot
+                    StartCoroutine(SpawnProj());
+                }
+
+                attackTimer = 0;
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                PlayerPrefs.SetInt("saved", 0);
+            }
+
+            //y = -5, 5
+            //x = -9, 9
+
+            if (transform.position.y > 5)
+            {
+                transform.position += transform.up * -1;
+            }
+
+            if (transform.position.y < -5)
+            {
+                transform.position += transform.up * 1;
+            }
+
+            if (transform.position.x > 9)
+            {
+                transform.position += transform.right * -1;
+            }
+
+            if (transform.position.x < -9)
+            {
+                transform.position += transform.right * 1;
+            }
+
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
+                if (power > 0)
+                {
+                    Time.timeScale = 0.25f;
+                    soul.enabled = true;
+                    print(sprite.color);
+                    sprite.color = new Color(1, 1, 1, 0.5f);
+                    power -= Time.deltaTime;
+                    if (power <= 0)
+                    {
+                        Time.timeScale = 1;
+                        soul.enabled = false;
+                        sprite.color = new Color(1, 1, 1, 1);
+                    }
                 }
             }
-        }
-        if (Input.GetKeyUp(KeyCode.LeftControl))
-        {
-            Time.timeScale = 1;
-            soul.enabled = false;
-            sprite.color = new Color(1, 1, 1, 1);
-        }
 
-        powerLevel.text = "power: "+ (float)System.Math.Round(power, 2);
-        powerBar.value = power;
+            if (Input.GetKeyUp(KeyCode.LeftControl))
+            {
+                Time.timeScale = 1;
+                soul.enabled = false;
+                sprite.color = new Color(1, 1, 1, 1);
+            }
+
+            powerLevel.text = "POWER: " + (float)System.Math.Round(power, 2);
+            powerBar.value = power;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -257,8 +259,7 @@ public class Player : MonoBehaviour
         {
             FindFirstObjectByType<BossCombatSystem>().paused = 0;
         }
-
-        print("i want kill " + gameObject.name);
+        sprite.enabled = false;
     }
     
     public void SaveData()
