@@ -142,7 +142,8 @@ MonoBehaviour:
   shootSpeed: 0
   dropped:
   - {fileID: 8832551604615321215, guid: ff656214f3aa97c9c97821ec84b5e55a, type: 3}
-  chance: 1e000000
+  - {fileID: 5376570703588983530, guid: e18358a78288586d1acb75e504a17afe, type: 3}
+  chance: 1e0000000f000000
   health: 3
 --- !u!58 &-3628503006750617962
 CircleCollider2D:

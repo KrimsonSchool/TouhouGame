@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     private float movingTimer;    
     AudioManager audioManager;
 
+    private bool edgePass;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,6 +40,10 @@ public class Enemy : MonoBehaviour
             moveTime = Random.Range(1, 6);
             dir = !dir;
             movingTimer = 0;
+            if (edgePass)
+            {
+                edgePass = false;
+            }
         }
 
         if (dir)
@@ -50,10 +55,14 @@ public class Enemy : MonoBehaviour
             transform.position-=transform.right * sideSpeed* Time.deltaTime;
         }
 
-        if (transform.position.x >= 6 || transform.position.x <= -6)
+        if (!edgePass)
         {
-            dir = !dir;
-            movingTimer = 0;
+            if (transform.position.x >= 6 || transform.position.x <= -6)
+            {
+                dir = !dir;
+                movingTimer = 0;
+                edgePass = true;
+            }
         }
 
         if (transform.position.y <= -6)
@@ -91,6 +100,7 @@ public class Enemy : MonoBehaviour
                     if (Random.Range(0, 100) <= chance[i])
                     {
                         Instantiate(dropped[i], transform.position, Quaternion.identity);
+                        break;
                     }
                 }
 

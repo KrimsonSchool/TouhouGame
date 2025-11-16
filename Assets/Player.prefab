@@ -309,7 +309,6 @@ MonoBehaviour:
   health: 3
   maxHealth: 3
   damage: 1
-  numberOfProjectiles: 1
   projectilePenetration: 1
   xpGain: 1
   goldGain: 1
@@ -318,7 +317,13 @@ MonoBehaviour:
   bloodDead: {fileID: 0}
   saveIcon: {fileID: 0}
   healthBar: {fileID: 0}
+  healthText: {fileID: 0}
   soul: {fileID: 3622335996249116054}
+  power: 0
+  powerLevel: {fileID: 0}
+  powerBar: {fileID: 0}
+  shootSpeed: 0.2
+  shootSpeedLevel: 0
 --- !u!1 &8393699011087476957
 GameObject:
   m_ObjectHideFlags: 0

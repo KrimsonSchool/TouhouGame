@@ -6,48 +6,43 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    [Header("Values")]
     public float speed;
-    
-    public Attack[] attacks;
-
     private float attackTimer;
-    
-    public SpriteRenderer sprite;
-
     private bool invincible;
-    
     public int health = 3;
     public int maxHealth = 3;
     public int damage = 1;
-    public int numberOfProjectiles;
     public int projectilePenetration;//pellet health, when hit enemy reduce by 1
     public int xpGain;
     public int goldGain;
-    
     public int gold;
     public int xp;
-
     private int level=1;
     private int xpMax = 10;
-    
-    UpgradeManager upgradeManager;
-
-    public GameObject bloodDead;
-    
-    AudioManager audioManager;
-
-    public GameObject saveIcon;
-
-    public Slider healthBar;
-
-    public SpriteRenderer soul;
-
+    public float shootSpeed;
+    float sP;
+    public int shootSpeedLevel;
+    private bool dead;
     public float power;
+    
+    [Space]
+    [Header("UI Elements")]
+    public GameObject bloodDead;
+    public GameObject saveIcon;
+    public Slider healthBar;
+    public TextMeshProUGUI healthText;
+    public SpriteRenderer soul;
     public TextMeshProUGUI powerLevel;
     public Slider powerBar;
+    public SpriteRenderer sprite;
+    public Attack[] attacks;
+    UpgradeManager upgradeManager;
+    AudioManager audioManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        sP = shootSpeed;
         Application.targetFrameRate = 180;
         upgradeManager = FindFirstObjectByType<UpgradeManager>();
         audioManager = FindFirstObjectByType<AudioManager>();
@@ -59,93 +54,117 @@ public class Player : MonoBehaviour
         {
             maxHealth = PlayerPrefs.GetInt("maxHealth");
             damage =  PlayerPrefs.GetInt("damage");
-            numberOfProjectiles =  PlayerPrefs.GetInt("numberOfProjectiles");
+            sP =  shootSpeed - (PlayerPrefs.GetInt("shootSpeed")* 0.025f);
+            shootSpeedLevel = PlayerPrefs.GetInt("shootSpeed");
             xpGain = PlayerPrefs.GetInt("xpGain");
             goldGain =  PlayerPrefs.GetInt("goldGain");
+            
+            print("Shoot speed lvl: "+PlayerPrefs.GetInt("shootSpeed")+ " which equates to " + sP+" secs per shot");
         }
         
         health = maxHealth;
         power = 5;
         powerBar.maxValue = power;
+
+        //shootSpeed = 0.2f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthBar.maxValue = maxHealth;
-        healthBar.value = health;
-
-        transform.position+=transform.up * (Input.GetAxis("Vertical") * (speed*Time.deltaTime)) +  transform.right * (Input.GetAxis("Horizontal") * (speed*Time.deltaTime));
-
-        attackTimer += Time.deltaTime;
-
-        if (attackTimer >= 0.1f)
+        if (!dead)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (sP <= 0)
             {
-                //shoot
-                StartCoroutine(SpawnProj());
+                sP = 0.05f;
             }
 
-            attackTimer = 0;
-        }
+            healthBar.maxValue = maxHealth;
+            healthBar.value = health;
+            healthText.text = "HEALTH: "+ health + "/" + maxHealth;
 
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            PlayerPrefs.SetInt("saved", 0);
-        }
+            transform.position += transform.up * (Input.GetAxis("Vertical") * (speed * Time.deltaTime)) +
+                                  transform.right * (Input.GetAxis("Horizontal") * (speed * Time.deltaTime));
 
-        //y = -5, 5
-        //x = -9, 9
+            attackTimer += Time.deltaTime;
 
-        if(transform.position.y>5)
-        {
-            transform.position += transform.up * -1;
-        }
-        if(transform.position.y <-5)
-        {
-            transform.position += transform.up * 1;
-        }
-        if (transform.position.x > 9)
-        {
-            transform.position += transform.right * -1;
-        }
-        if (transform.position.x < -9)
-        {
-            transform.position += transform.right * 1;
-        }
-
-        if (Input.GetKey(KeyCode.LeftControl))
-        {
-            if (power > 0)
+            if (Input.GetKeyUp(KeyCode.Space))
             {
-                Time.timeScale = 0.25f;
-                soul.enabled = true;
-                print(sprite.color);
-                sprite.color = new Color(1, 1, 1, 0.5f);
-                power -= Time.deltaTime;
-                if(power <= 0)
+                attackTimer = sP;
+            }
+            if (attackTimer >= sP)
+            {
+                if (Input.GetKey(KeyCode.Space))
                 {
-                    Time.timeScale = 1;
-                    soul.enabled = false;
-                    sprite.color = new Color(1, 1, 1, 1);
+                    //shoot
+                    StartCoroutine(SpawnProj());
+                }
+
+                attackTimer = 0;
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                PlayerPrefs.SetInt("saved", 0);
+            }
+
+            //y = -5, 5
+            //x = -9, 9
+
+            if (transform.position.y > 5)
+            {
+                transform.position += transform.up * -1;
+            }
+
+            if (transform.position.y < -5)
+            {
+                transform.position += transform.up * 1;
+            }
+
+            if (transform.position.x > 9)
+            {
+                transform.position += transform.right * -1;
+            }
+
+            if (transform.position.x < -9)
+            {
+                transform.position += transform.right * 1;
+            }
+
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
+                if (power > 0)
+                {
+                    Time.timeScale = 0.25f;
+                    soul.enabled = true;
+                    print(sprite.color);
+                    sprite.color = new Color(1, 1, 1, 0.5f);
+                    power -= Time.deltaTime;
+                    if (power <= 0)
+                    {
+                        Time.timeScale = 1;
+                        soul.enabled = false;
+                        sprite.color = new Color(1, 1, 1, 1);
+                    }
                 }
             }
-        }
-        if (Input.GetKeyUp(KeyCode.LeftControl))
-        {
-            Time.timeScale = 1;
-            soul.enabled = false;
-            sprite.color = new Color(1, 1, 1, 1);
-        }
 
-        powerLevel.text = "power: "+ (float)System.Math.Round(power, 2);
-        powerBar.value = power;
+            if (Input.GetKeyUp(KeyCode.LeftControl))
+            {
+                Time.timeScale = 1;
+                soul.enabled = false;
+                sprite.color = new Color(1, 1, 1, 1);
+            }
+
+            powerLevel.text = "POWER: " + (float)System.Math.Round(power, 2);
+            powerBar.value = power;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("EnemyPellet") && !invincible)
+        if (other.CompareTag("EnemyPellet") && !invincible && !dead)
         {
             Destroy(other.gameObject);
             health--;
@@ -155,13 +174,12 @@ public class Player : MonoBehaviour
             }
             StartCoroutine(Flash());
         }
-
-        if (other.CompareTag("Gold"))
+        if (other.CompareTag("Gold") && !dead)
         {
             Destroy(other.gameObject);
             gold+= goldGain;
         }
-        if (other.CompareTag("Xp"))
+        if (other.CompareTag("Xp") && !dead)
         {
             xp+=xpGain;
             if (xp >= xpMax)
@@ -170,6 +188,27 @@ public class Player : MonoBehaviour
                 xpMax += (xpMax / 7);
                 level++;
             }
+        }
+        if (other.CompareTag("Powerup") && !dead)
+        {
+            Powerup p = other.GetComponent<Powerup>();
+            switch (p.powerupType)
+            {
+                case 0:
+                    sP -= 0.025f;
+                    break;
+                case 1:
+                    damage += 1;
+                    break;
+                case 2:
+                    maxHealth += 1;
+                    break;
+                case 3:
+                    
+                    health += 1;
+                    break;
+            }
+            Destroy(other.gameObject);
         }
     }
 
@@ -203,26 +242,24 @@ public class Player : MonoBehaviour
 
     IEnumerator SpawnProj()
     {
-        for (int i = 0; i < numberOfProjectiles; i++)
-        {
-            audioManager.shoot.Play();
-            attacks[0].Init(damage);
-            yield return new WaitForSeconds(0.2f);
-        }
+        audioManager.shoot.Play();
+        attacks[0].Init(damage);
+        yield return new WaitForSeconds(0.2f);
     }
 
     public void Death()
     {
+        dead = true;
+        Time.timeScale = 1;
         Instantiate(audioManager.playerDeath, transform.position, Quaternion.identity);
-        //Time.timeScale = 0;
         bloodDead.SetActive(true);
-        //restart to wave 1
-        //red screen filter
-        //show upgrades board
         upgradeManager.Init();
 
-        FindFirstObjectByType<BossCombatSystem>().paused = 0;
-        Destroy(this.gameObject);
+        if (FindFirstObjectByType<BossCombatSystem>() != null)
+        {
+            FindFirstObjectByType<BossCombatSystem>().paused = 0;
+        }
+        sprite.enabled = false;
     }
     
     public void SaveData()
@@ -231,7 +268,7 @@ public class Player : MonoBehaviour
         PlayerPrefs.SetInt("saved", 1);
         PlayerPrefs.SetInt("maxHealth", maxHealth);
         PlayerPrefs.SetInt("damage", damage);
-        PlayerPrefs.SetInt("numberOfProjectiles", numberOfProjectiles);
+        PlayerPrefs.SetInt("shootSpeed", shootSpeedLevel);
         PlayerPrefs.SetInt("xpGain", xpGain);
         PlayerPrefs.SetInt("goldGain", goldGain);
         saveIcon.SetActive(false);
