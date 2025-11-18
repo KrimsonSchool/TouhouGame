@@ -4,11 +4,13 @@ public class Pickup : MonoBehaviour
 {    
     public float speed;
     public float drawSpeed;
-    GameObject player;
+    public float drawRange;
+    Player player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        player = FindFirstObjectByType<Player>().gameObject;
+        player = FindFirstObjectByType<Player>();
+        drawRange = player.pickupRangeTru;
     }
 
     // Update is called once per frame
@@ -16,9 +18,9 @@ public class Pickup : MonoBehaviour
     {
         transform.position+=transform.up*speed*Time.deltaTime;
 
-        if (Vector2.Distance(transform.position, player.transform.position) <= drawSpeed)
+        if (Vector2.Distance(transform.position, player.gameObject.transform.position) <= drawRange)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, (speed*-1)*Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, player.gameObject.transform.position, (drawSpeed*-1)*Time.deltaTime);
         }
     }
 }

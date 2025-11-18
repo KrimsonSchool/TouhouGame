@@ -101,6 +101,9 @@ public class UpgradeManager : MonoBehaviour
                 case 5:
                     player.goldGain++;
                     break;
+                case 6:
+                    player.pickupRange++;
+                    break;
             }
 
             upgradeLevels[upgradeNo]++;

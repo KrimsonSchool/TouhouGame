@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -18,6 +19,8 @@ public class Player : MonoBehaviour
     public int goldGain;
     public int gold;
     public int xp;
+    public int pickupRange;
+    public float pickupRangeTru;
     private int level=1;
     private int xpMax = 10;
     public float shootSpeed;
@@ -58,6 +61,8 @@ public class Player : MonoBehaviour
             shootSpeedLevel = PlayerPrefs.GetInt("shootSpeed");
             xpGain = PlayerPrefs.GetInt("xpGain");
             goldGain =  PlayerPrefs.GetInt("goldGain");
+            pickupRange =  PlayerPrefs.GetInt("pickupRange");
+            pickupRangeTru = 1 + (pickupRange * 0.4f);
             
             print("Shoot speed lvl: "+PlayerPrefs.GetInt("shootSpeed")+ " which equates to " + sP+" secs per shot");
         }
@@ -107,6 +112,7 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.M))
             {
                 PlayerPrefs.SetInt("saved", 0);
+                SceneManager.LoadScene(SceneManager.loadedSceneCount);
             }
 
             //y = -5, 5
@@ -204,7 +210,9 @@ public class Player : MonoBehaviour
                     maxHealth += 1;
                     break;
                 case 3:
-                    
+                    power += 0.6f;
+                    break;
+                case 4:
                     health += 1;
                     break;
             }
@@ -271,6 +279,7 @@ public class Player : MonoBehaviour
         PlayerPrefs.SetInt("shootSpeed", shootSpeedLevel);
         PlayerPrefs.SetInt("xpGain", xpGain);
         PlayerPrefs.SetInt("goldGain", goldGain);
+        PlayerPrefs.SetInt("pickupRange", pickupRange);
         saveIcon.SetActive(false);
     }
 }

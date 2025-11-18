@@ -161,4 +161,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -1.2
-  drawSpeed: 2
+  drawSpeed: -2
+  drawRange: 0

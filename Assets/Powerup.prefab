@@ -107,6 +107,7 @@ MonoBehaviour:
   - {fileID: -5539776402246032341, guid: e5f435d10d337ac41b4b8a76bbd1587f, type: 3}
   - {fileID: 1262816926691687518, guid: fbc82e4f96bdd3c40814ebce8a416cba, type: 3}
   - {fileID: 3170943839131916039, guid: 0c813581c8ce53c439d0be8c57c19c02, type: 3}
+  - {fileID: 6255016322712691110, guid: 70cc1abe12030c6479f6bbaa5bdceb05, type: 3}
   - {fileID: -8504478667243500470, guid: 4199b27c5f74c4c4db717ea4c5e65b95, type: 3}
   powerupType: -1
 --- !u!61 &3720308333559528243
@@ -167,5 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af76bacc755d02b1eb43dd3f418c8422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -1.2
-  drawSpeed: 2
+  speed: -1.8
+  drawSpeed: -2
+  drawRange: 0

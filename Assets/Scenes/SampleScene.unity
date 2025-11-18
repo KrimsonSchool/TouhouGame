@@ -160,12 +160,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13534492}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 842.4549, y: 554.33594, z: 5.240094}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -48.977123, y: 5.9733067, z: 2.1833723}
+  m_LocalScale: {x: 0.41666663, y: 0.41666663, z: 0.41666663}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1680236281}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &17087954
 GameObject:
@@ -2282,8 +2282,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1403542222774109398, guid: d7ce0c64a683100dcb9e1b8d3fdd075c, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: UpgradeButton
       objectReference: {fileID: 0}
+    - target: {fileID: 3224060776968882426, guid: d7ce0c64a683100dcb9e1b8d3fdd075c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 13534493}
+    - target: {fileID: 3224060776968882426, guid: d7ce0c64a683100dcb9e1b8d3fdd075c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Upgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224060776968882426, guid: d7ce0c64a683100dcb9e1b8d3fdd075c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548043619293248227, guid: d7ce0c64a683100dcb9e1b8d3fdd075c, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548043619293248227, guid: d7ce0c64a683100dcb9e1b8d3fdd075c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8663484258047478018, guid: d99afa3dbdb83444e896e902dd78c5e9, type: 3}
     - target: {fileID: 9011714899534006395, guid: d7ce0c64a683100dcb9e1b8d3fdd075c, type: 3}
       propertyPath: m_text
       value: Pickup Range +
@@ -5412,7 +5432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &979718636
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8614,6 +8634,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3548043619293248227, guid: d7ce0c64a683100dcb9e1b8d3fdd075c, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548043619293248227, guid: d7ce0c64a683100dcb9e1b8d3fdd075c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1020891091659675930, guid: af4d00a772afc7041bc2235e7bb3a2fd, type: 3}
     - target: {fileID: 8535486067914187447, guid: d7ce0c64a683100dcb9e1b8d3fdd075c, type: 3}
       propertyPath: m_SizeDelta.y
       value: -70.8218
@@ -11205,6 +11233,7 @@ RectTransform:
   m_Children:
   - {fileID: 1067625470}
   - {fileID: 1115490044}
+  - {fileID: 13534494}
   - {fileID: 1624856146}
   - {fileID: 2036998106}
   - {fileID: 95977026}
@@ -12686,6 +12715,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3548043619293248227, guid: d7ce0c64a683100dcb9e1b8d3fdd075c, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548043619293248227, guid: d7ce0c64a683100dcb9e1b8d3fdd075c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2645559062852433164, guid: f260b3cbb0f9f5e4ca279340d5f0c681, type: 3}
     - target: {fileID: 9011714899534006395, guid: d7ce0c64a683100dcb9e1b8d3fdd075c, type: 3}
       propertyPath: m_text
       value: XP Gain +
@@ -14770,6 +14807,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3548043619293248227, guid: d7ce0c64a683100dcb9e1b8d3fdd075c, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548043619293248227, guid: d7ce0c64a683100dcb9e1b8d3fdd075c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2407090671634112019, guid: 17a1ff43a267acd40a120717d12e708d, type: 3}
     - target: {fileID: 9011714899534006395, guid: d7ce0c64a683100dcb9e1b8d3fdd075c, type: 3}
       propertyPath: m_text
       value: Gold Gain +
@@ -14816,6 +14861,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3622335996249116054, guid: 60c6861180387da4fb5a9a7184d3d44d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1450832486876025762, guid: 983af1b6887606847ab2fe9112d30958, type: 3}
+    - target: {fileID: 3622335996249116054, guid: 60c6861180387da4fb5a9a7184d3d44d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5687056811193919263, guid: 60c6861180387da4fb5a9a7184d3d44d, type: 3}
       propertyPath: powerBar
       value: 
@@ -14843,6 +14896,10 @@ PrefabInstance:
     - target: {fileID: 5687056811193919263, guid: 60c6861180387da4fb5a9a7184d3d44d, type: 3}
       propertyPath: shootSpeed
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5687056811193919263, guid: 60c6861180387da4fb5a9a7184d3d44d, type: 3}
+      propertyPath: pickupRange
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7408546041873208035, guid: 60c6861180387da4fb5a9a7184d3d44d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15069,7 +15126,6 @@ SceneRoots:
   - {fileID: 1988248544}
   - {fileID: 1680236281}
   - {fileID: 1765946373}
-  - {fileID: 13534494}
   - {fileID: 1514991170}
   - {fileID: 79050069}
   - {fileID: 1418941249}
