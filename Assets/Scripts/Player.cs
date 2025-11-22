@@ -43,6 +43,8 @@ public class Player : MonoBehaviour
     public Attack[] attacks;
     UpgradeManager upgradeManager;
     AudioManager audioManager;
+    public Slider xpBar;
+    public TextMeshProUGUI xpText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -176,6 +178,11 @@ public class Player : MonoBehaviour
 
             powerLevel.text = "POWER: " + (float)System.Math.Round(power, 2);
             powerBar.value = power;
+
+            xpBar.maxValue = xpMax;
+            xpBar.value = xp;
+
+            xpText.text = "XP:" + xp + "/" + xpMax;
         }
     }
 
