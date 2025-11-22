@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -34,6 +36,7 @@ public class WaveManager : MonoBehaviour
             {
                 //dialogue first, then boss spawn...
                 print("Boss time!!!");
+                StartCoroutine(PurgeEnemies());
                 FindAnyObjectByType<DialogueManager>().StartConversation(bossIndex);
                 inBossFight = true;
             }
@@ -52,5 +55,15 @@ public class WaveManager : MonoBehaviour
         print("Spawn boss index "+ bossIndex);
         Instantiate(bosses[bossIndex], transform.position, Quaternion.identity);
         bossIndex++;
+    }
+
+    public IEnumerator PurgeEnemies()
+    {
+        while (FindFirstObjectByType<Enemy>()!=null)
+        {
+            print("Theres at least 1 enemy!!!");
+            Destroy(FindFirstObjectByType<Enemy>().gameObject);
+            yield return null;
+        }
     }
 }

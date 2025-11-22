@@ -21,13 +21,14 @@ public class Player : MonoBehaviour
     public int xp;
     public int pickupRange;
     public float pickupRangeTru;
-    private int level=1;
-    private int xpMax = 10;
+    [HideInInspector] public int level=1;
+    [HideInInspector] public int xpMax = 10;
     public float shootSpeed;
     float sP;
     public int shootSpeedLevel;
     private bool dead;
     public float power;
+    public int maxPower;
     
     [Space]
     [Header("UI Elements")]
@@ -63,12 +64,22 @@ public class Player : MonoBehaviour
             goldGain =  PlayerPrefs.GetInt("goldGain");
             pickupRange =  PlayerPrefs.GetInt("pickupRange");
             pickupRangeTru = 1 + (pickupRange * 0.4f);
+            xp =  PlayerPrefs.GetInt("xp");
+            xpMax =  PlayerPrefs.GetInt("maxXp");
+            level =  PlayerPrefs.GetInt("level");
             
             print("Shoot speed lvl: "+PlayerPrefs.GetInt("shootSpeed")+ " which equates to " + sP+" secs per shot");
         }
-        
+        else
+        {
+            xpMax = 5;
+            maxPower = 5;
+            maxHealth = 3;
+        }
+
+        maxPower = Mathf.RoundToInt((5 + level)*0.75f);
         health = maxHealth;
-        power = 5;
+        power = maxPower;
         powerBar.maxValue = power;
 
         //shootSpeed = 0.2f;
@@ -187,13 +198,7 @@ public class Player : MonoBehaviour
         }
         if (other.CompareTag("Xp") && !dead)
         {
-            xp+=xpGain;
-            if (xp >= xpMax)
-            {
-                xp-=xpMax;
-                xpMax += (xpMax / 7);
-                level++;
-            }
+            
         }
         if (other.CompareTag("Powerup") && !dead)
         {
@@ -201,19 +206,25 @@ public class Player : MonoBehaviour
             switch (p.powerupType)
             {
                 case 0:
-                    sP -= 0.025f;
+                    health += 1;
                     break;
                 case 1:
-                    damage += 1;
+                    sP -= 0.025f;
                     break;
                 case 2:
-                    maxHealth += 1;
+                    damage += 1;
                     break;
                 case 3:
-                    power += 0.6f;
+                    maxHealth += 1;
                     break;
                 case 4:
-                    health += 1;
+                    if (power <= 4.75f)
+                    {
+                        power += 0.25f;
+                    }
+                    break;
+                case 5:
+                    xp+=xpGain;
                     break;
             }
             Destroy(other.gameObject);
@@ -268,6 +279,11 @@ public class Player : MonoBehaviour
             FindFirstObjectByType<BossCombatSystem>().paused = 0;
         }
         sprite.enabled = false;
+        print("has " + xp+" xp out of " + xpMax);
+        if(xp>=xpMax)
+        {
+            FindFirstObjectByType<MenuManager>().InitLevelUp();
+        }
     }
     
     public void SaveData()
@@ -280,6 +296,9 @@ public class Player : MonoBehaviour
         PlayerPrefs.SetInt("xpGain", xpGain);
         PlayerPrefs.SetInt("goldGain", goldGain);
         PlayerPrefs.SetInt("pickupRange", pickupRange);
+        PlayerPrefs.SetInt("xp", xp);
+        PlayerPrefs.SetInt("maxXp", xpMax);
+        PlayerPrefs.SetInt("level", level);
         saveIcon.SetActive(false);
     }
 }

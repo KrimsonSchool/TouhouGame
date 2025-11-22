@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: -3628503006750617962}
   - component: {fileID: 2798223078544926719}
   - component: {fileID: 8643356512606327803}
+  - component: {fileID: 6256422373992786831}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: EnemyPellet
@@ -230,3 +231,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6256422373992786831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9023076151922070761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af76bacc755d02b1eb43dd3f418c8422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  drawSpeed: -1
+  drawRange: 100

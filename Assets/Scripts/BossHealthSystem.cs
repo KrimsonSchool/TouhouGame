@@ -33,8 +33,7 @@ public class BossHealthSystem : MonoBehaviour
 
         healthBar = audioManager.healthBar;
         shieldBar = audioManager.shieldBar;
-
-
+        
         healthBar.maxValue = health;
         shieldBar.maxValue = shieldHealth;
     }
@@ -42,32 +41,7 @@ public class BossHealthSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (healthBar.enabled)
-        {
-            healthBar.value = health;
-        }
-
-        if (shieldBar.enabled)
-        {
-            shieldBar.value = shieldHealth;
-        }
-
-        if (health <= 0)
-        {
-            healthBar.gameObject.SetActive(false);
-        }
-        else
-        {
-            healthBar.gameObject.SetActive(true);
-        }
-        if (shieldHealth <= 0)
-        {
-            shieldBar.gameObject.SetActive(false);
-        }
-        else
-        {
-            shieldBar.gameObject.SetActive(true);
-        }
+        UpdateHealthBar();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -98,9 +72,16 @@ public class BossHealthSystem : MonoBehaviour
 
                 if (health <= 0)
                 {
+                    
+                    UpdateHealthBar();
                     FindFirstObjectByType<WaveManager>().inBossFight = false;
                     Powerup pw = Instantiate(powerup, transform.position, Quaternion.identity).GetComponent<Powerup>();
-                    pw.powerupType = 3;
+                    pw.powerupType = 0;
+                     pw = Instantiate(powerup, transform.position, Quaternion.identity).GetComponent<Powerup>();
+                    pw.powerupType = 5;
+                     pw = Instantiate(powerup, transform.position, Quaternion.identity).GetComponent<Powerup>();
+                    pw.powerupType = 0;
+                    Instantiate(powerup, transform.position, Quaternion.identity);
                     Destroy(this.gameObject);
                     //END OF DEMO
                     if (gameObject.name == "Boss2")
@@ -112,7 +93,7 @@ public class BossHealthSystem : MonoBehaviour
                 }
             }
             Instantiate(audioManager.hitEffect, other.transform.position, Quaternion.identity);
-
+            audioManager.impact.Play();
             Destroy(other.gameObject);
         }
     }
@@ -131,5 +112,35 @@ public class BossHealthSystem : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         spriteRenderer.enabled = true;
         _flickerRoutine = null;
+    }
+
+    public void UpdateHealthBar()
+    {
+        if (healthBar.enabled)
+        {
+            healthBar.value = health;
+        }
+
+        if (shieldBar.enabled)
+        {
+            shieldBar.value = shieldHealth;
+        }
+
+        if (health <= 0)
+        {
+            healthBar.gameObject.SetActive(false);
+        }
+        else
+        {
+            healthBar.gameObject.SetActive(true);
+        }
+        if (shieldHealth <= 0)
+        {
+            shieldBar.gameObject.SetActive(false);
+        }
+        else
+        {
+            shieldBar.gameObject.SetActive(true);
+        }
     }
 }

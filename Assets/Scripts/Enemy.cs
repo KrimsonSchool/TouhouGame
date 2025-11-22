@@ -100,7 +100,7 @@ public class Enemy : MonoBehaviour
                     if (Random.Range(0, 100) <= chance[i])
                     {
                         Instantiate(dropped[i], transform.position, Quaternion.identity);
-                        break;
+                        //break;
                     }
                 }
 
