@@ -86,9 +86,7 @@ public class BossHealthSystem : MonoBehaviour
                     //END OF DEMO
                     if (gameObject.name == "Boss2")
                     {
-                        eod.GetComponentInChildren<Image>(true).gameObject.SetActive(true);
-                        Cursor.visible = true;
-                        Cursor.lockState = CursorLockMode.Confined;
+                        FindAnyObjectByType<DialogueManager>().StartConversation(2);
                     }
                 }
             }

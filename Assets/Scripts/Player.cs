@@ -205,7 +205,7 @@ public class Player : MonoBehaviour
         }
         if (other.CompareTag("Xp") && !dead)
         {
-            
+            xp+=xpGain;
         }
         if (other.CompareTag("Powerup") && !dead)
         {
