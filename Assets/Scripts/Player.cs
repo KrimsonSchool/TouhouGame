@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
         maxPower = Mathf.RoundToInt((5 + level)*0.75f);
         health = maxHealth;
         power = maxPower;
-        powerBar.maxValue = power;
+        powerBar.maxValue = maxPower;
 
         //shootSpeed = 0.2f;
     }
@@ -206,6 +206,8 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Xp") && !dead)
         {
             xp+=xpGain;
+            Destroy(other.gameObject);
+
         }
         if (other.CompareTag("Powerup") && !dead)
         {
